@@ -10,6 +10,7 @@ GameWindow {
 
 
   minimizeable: true
+  maximizeable:  true
 
   // this would disable the fps label both for QML & cocos renderer - if only qml renderer should be disabled use fpsTextItem.visible: false
   displayFpsEnabled: developerBuild

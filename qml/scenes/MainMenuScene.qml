@@ -13,7 +13,7 @@ SceneBase {
 
   TextButton {
     x: 275/4-384/8
-    y: 960/4-192/8
+    y: 950/4-192/8
     onClicked: {
       audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateLoadingScene()
@@ -23,7 +23,7 @@ SceneBase {
   }
   TextButton {
     x: 765/4-384/8
-    y: 960/4-192/8
+    y: 950/4-192/8
     onClicked: {
       audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateOptionsScene()
@@ -33,7 +33,7 @@ SceneBase {
   }
   TextButton {
     x: 1520/4-384/8
-    y: 960/4-192/8
+    y: 950/4-192/8
     onClicked: {
       audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateCreditsScene()

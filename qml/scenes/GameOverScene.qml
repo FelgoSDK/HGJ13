@@ -7,19 +7,19 @@ SceneBase {
   MultiResolutionImage {
     id: redWins
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_red-hd2.png"
+    source: "../img/end_of_game_red-sd.png"
   }
 
   MultiResolutionImage {
     id: greenWins
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_green-hd2.png"
+    source: "../img/end_of_game_green-sd.png"
   }
 
   MultiResolutionImage {
     id: drawWins
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_draw-hd2.png"
+    source: "../img/end_of_game_draw-sd.png"
   }
 
   function backPressed() {

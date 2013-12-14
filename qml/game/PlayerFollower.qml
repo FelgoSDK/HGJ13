@@ -21,7 +21,7 @@ EntityBase {
     id: sprite
     translateToCenterAnchor: true
 
-    filename: "../img/images-hd2.json"
+    filename: "../img/images-sd.json"
     running: true
 
     Sprite {

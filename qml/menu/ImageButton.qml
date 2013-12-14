@@ -3,7 +3,7 @@ import QtQuick 1.1
 
 SingleSpriteFromFile {
   id: button
-  filename: "../img/images-hd2.json"
+  filename: "../img/images-sd.json"
   translateToCenterAnchor: false
   source: "options.png"
 

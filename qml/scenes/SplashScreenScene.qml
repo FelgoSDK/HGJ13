@@ -7,7 +7,7 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene
-    source: "../img/splash_screen-hd2.png"
+    source: "../img/splash_screen-sd.png"
   }
 
   Timer {

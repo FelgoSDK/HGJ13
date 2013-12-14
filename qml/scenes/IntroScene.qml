@@ -7,7 +7,7 @@ SceneBase {
 
   SingleSpriteFromFile {
 
-    filename: "../img/images-hd2.json"
+    filename: "../img/images-sd.json"
     source: "cheese.png"
     translateToCenterAnchor: false
     anchors.centerIn: scene.gameWindowAnchorItem

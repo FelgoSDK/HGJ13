@@ -8,7 +8,7 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/about_screen-hd2.png"
+    source: "../img/about_screen-sd.png"
   }
 
   function backPressed() {

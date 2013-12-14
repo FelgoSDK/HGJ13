@@ -25,7 +25,7 @@ Item {
     id: levelBackground
 
     anchors.centerIn: level
-    source: "../img/bg_ingame-hd2.png"
+    source: "../img/bg_ingame-sd.png"
   }
 
   property int progress: 0

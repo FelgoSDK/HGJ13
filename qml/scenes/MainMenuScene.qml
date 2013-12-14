@@ -8,7 +8,7 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/title-hd2.png"
+    source: "../img/title-sd.png"
   }
 
   Row {

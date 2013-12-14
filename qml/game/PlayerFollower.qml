@@ -106,12 +106,22 @@ EntityBase {
 
   TwoAxisController {
     id: twoAxisController
-
-    // call the logic function when an input press (possibly the fire event) is received
-    onInputActionPressed: function(actionName) {
-                            console.debug(actionName)
-                          }
   }
+
+  // moves the player depending on the twoAxisController
+    Timer {
+      id: updateTimer
+      interval: 20
+      running: true
+      repeat: true
+      onTriggered: {
+        var xAxis = twoAxisController.xAxis
+        //camera.x+=xAxis*10
+        var yAxis = twoAxisController.yAxis
+        //camera.y-=yAxis*10
+         console.debug("Data",twoAxisController.xAxis,twoAxisController.yAxis)
+      }
+    }
 
   /*  MoveToPointHelper {
     id: moveToPointHelper

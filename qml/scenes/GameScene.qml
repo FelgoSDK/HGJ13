@@ -6,9 +6,7 @@ import "../game"
 SceneBase {
   id: scene
 
-  focus: true
-  //controllerOfScene: level.getPlayerControllers()
-  Keys.forwardTo: level.character.controller
+  controllerOfScene: level.getPlayerControllers()
   // debug scale to see whole scene and colliders
   //scale: 0.5
 

@@ -19,7 +19,7 @@ GameWindow {
   property bool developerBuild: !system.publishBuild
 
   // forward events always to the controller of the loaded active scene
-  //Keys.forwardTo: activeScene.controllerOfScene
+  Keys.forwardTo: activeScene.controllerOfScene
 
   // sceneLoader and managers should be available in every scene
   property alias window: window

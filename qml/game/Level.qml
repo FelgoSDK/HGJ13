@@ -67,9 +67,7 @@ Item {
     return [earth];
   }
 
-  property alias character: character
   function getPlayerControllers() {
-    console.debug("got it ");
     return [character.controller, character2.controller]
   }
 

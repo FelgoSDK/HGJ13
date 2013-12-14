@@ -21,12 +21,12 @@ Item {
     height: 80
   }
 
-  Background {
+  /*Background {
     id: levelBackground
 
     anchors.centerIn: level
     source: "../img/bg_ingame-sd.png"
-  }
+  }*/
 
   property int progress: 0
   property int maxprogress: 600
@@ -39,20 +39,16 @@ Item {
   }
 
   function reset() {
-
     progressRect.visible = true
+    var width = level.width
+    var height = level.height
+    var centerX = width*0.5
+    var centerY = height*0.5
+    character.x = playerDragger.x = 0
+    character.y = playerDragger.y = centerY
 
-    playerDragger.x= level.width/2-playerDragger.width/2
-    playerDragger.y= 10+50
-
-    character.x= level.width/2-playerDragger.width/2
-    character.y= 10+50
-
-    playerDragger2.x= level.width/2-playerDragger.width/2
-    playerDragger2.y= level.height-10-50
-
-    character2.x= level.width/2-playerDragger.width/2
-    character2.y= level.height-10-50
+    character2.x = playerDragger2.x = width
+    character2.y = playerDragger2.y = centerY
 
     progress = 0
     settingsManager.balance = 0
@@ -81,5 +77,9 @@ Item {
     id: character2
     entityId: "g"
     realTarget: playerDragger2
+  }
+
+  Earth {
+    id: earth
   }
 }

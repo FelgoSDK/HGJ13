@@ -6,17 +6,39 @@ import "../menu"
 Item {
   id: level
 
-
-  Rectangle {
-    anchors.fill: parent
-    color: "#263357"
-  }
-
   Background {
     id: levelBackground
 
     anchors.centerIn: level
     source: "../img/bg_ingame-sd.png"
+  }
+
+  BorderElement {
+    x: scene.gameWindowAnchorItem.x
+    y: scene.gameWindowAnchorItem.y-20
+    width: scene.gameWindowAnchorItem.width
+    height: 20
+  }
+
+  BorderElement {
+    x: scene.gameWindowAnchorItem.x
+    y: scene.gameWindowAnchorItem.y+scene.gameWindowAnchorItem.height
+    width: scene.gameWindowAnchorItem.width
+    height: 20
+  }
+
+  BorderElement {
+    x: scene.gameWindowAnchorItem.x-20
+    y: scene.gameWindowAnchorItem.y
+    width: 20
+    height: scene.gameWindowAnchorItem.height
+  }
+
+  BorderElement {
+    x: scene.gameWindowAnchorItem.x+scene.gameWindowAnchorItem.width
+    y: scene.gameWindowAnchorItem.y
+    width: 20
+    height: scene.gameWindowAnchorItem.height
   }
 
   function update() {

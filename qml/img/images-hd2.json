@@ -2,7 +2,7 @@
 
 "cheese.png":
 {
-	"frame": {"x":210,"y":710,"w":244,"h":226},
+	"frame": {"x":197,"y":710,"w":244,"h":226},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":20,"w":244,"h":226},
@@ -10,15 +10,15 @@
 },
 "comet.png":
 {
-	"frame": {"x":364,"y":261,"w":69,"h":85},
+	"frame": {"x":347,"y":245,"w":68,"h":84},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":15,"y":12,"w":69,"h":85},
-	"sourceSize": {"w":99,"h":113}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":84},
+	"sourceSize": {"w":68,"h":84}
 },
 "debugrect.png":
 {
-	"frame": {"x":210,"y":450,"w":260,"h":260},
+	"frame": {"x":197,"y":450,"w":260,"h":260},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":260,"h":260},
@@ -26,67 +26,67 @@
 },
 "earth.png":
 {
-	"frame": {"x":216,"y":2,"w":243,"h":259},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":14,"y":18,"w":243,"h":259},
-	"sourceSize": {"w":273,"h":297}
+	"frame": {"x":199,"y":2,"w":243,"h":258},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":243,"h":258},
+	"sourceSize": {"w":243,"h":258}
 },
 "moon.png":
 {
-	"frame": {"x":216,"y":261,"w":148,"h":148},
+	"frame": {"x":199,"y":245,"w":148,"h":147},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":20,"y":17,"w":148,"h":148},
-	"sourceSize": {"w":192,"h":186}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":147},
+	"sourceSize": {"w":148,"h":147}
 },
 "player1.png":
 {
-	"frame": {"x":2,"y":2,"w":214,"h":448},
+	"frame": {"x":2,"y":2,"w":197,"h":448},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":20,"y":10,"w":214,"h":448},
-	"sourceSize": {"w":234,"h":470}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":197,"h":448},
+	"sourceSize": {"w":197,"h":448}
 },
 "player2.png":
 {
-	"frame": {"x":2,"y":450,"w":208,"h":448},
+	"frame": {"x":2,"y":450,"w":195,"h":448},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":14,"w":208,"h":448},
-	"sourceSize": {"w":234,"h":470}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":195,"h":448},
+	"sourceSize": {"w":195,"h":448}
 },
 "rocket1.png":
 {
-	"frame": {"x":87,"y":898,"w":84,"h":53},
+	"frame": {"x":284,"y":392,"w":84,"h":52},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":20,"y":13,"w":84,"h":53},
-	"sourceSize": {"w":110,"h":75}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":52},
+	"sourceSize": {"w":84,"h":52}
 },
 "rocket2.png":
 {
-	"frame": {"x":2,"y":898,"w":85,"h":53},
+	"frame": {"x":347,"y":329,"w":84,"h":52},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":5,"w":85,"h":53},
-	"sourceSize": {"w":105,"h":63}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":52},
+	"sourceSize": {"w":84,"h":52}
 },
 "satellite.png":
 {
-	"frame": {"x":364,"y":346,"w":86,"h":52},
+	"frame": {"x":199,"y":392,"w":85,"h":52},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":13,"y":13,"w":86,"h":52},
-	"sourceSize": {"w":118,"h":72}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":52},
+	"sourceSize": {"w":85,"h":52}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
 	"version": "1.0",
 	"image": "images-hd2.png",
 	"format": "RGBA8888",
-	"size": {"w":472,"h":953},
+	"size": {"w":459,"h":938},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:805106ada13a9ae0e9561fe5ab37adec:3ef62ca30d70f6f5f88954cc7cb4423f:6030530bb437327299b6b5c64c539fbf$"
+	"smartupdate": "$TexturePacker:SmartUpdate:0e655c27aaf338c5630985d27426ee5f:f243f8e76022729920d5fdfa41a4a89b:6030530bb437327299b6b5c64c539fbf$"
 }
 }

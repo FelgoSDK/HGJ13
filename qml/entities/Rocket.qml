@@ -73,7 +73,7 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: "rocket"+variationType+".png"
-    translateToCenterAnchor: false
+    //translateToCenterAnchor: false
   }
 
   DebugVisual {

@@ -41,6 +41,13 @@ GravityEntity {
     translateToCenterAnchor: false
   }
 
+  DebugVisual {
+    x: -sprite.width/2
+    y: -sprite.height/2
+    width: sprite.width
+    height: sprite.height
+  }
+
   Timer {
     interval: 40
     running: true

@@ -33,42 +33,21 @@ GravityEntity {
     id: collider
     radius: parent.radius
     friction: 1
-    bodyType: Body.Static
+    bodyType: Body.Dynamic
 
     collisionTestingOnlyMode: true
     sensor: false
-    categories: settingsManager.playerColliderGroup
+    categories: settingsManager.worldColliderGroup
     fixedRotation: true
-  }
-
-  /*  CircleCollider {
-    id: collider
-    radius: sprite.width/2
-    width: sprite.width
-    height: sprite.height
-
-    collisionTestingOnlyMode: true
-    sensor: false
-    categories: settingsManager.playerColliderGroup
-
-    fixedRotation: true
-
     fixture.onBeginContact: {
-     // var fixture = other;
-    //  var body = fixture.parent;
-     // var component = body.parent;
-    //  var collidedEntity = component.owningEntity;
-    //  var collidedEntityType = collidedEntity.entityType;
-     // if(collidedEntityType === "pedestrian") {
-        //audioManager.play(audioManager.idNEVER)
-     // }
+      var fixture = other;
+      var body = fixture.parent;
+      var component = body.parent;
+      var collidedEntity = component.owningEntity;
+      var collidedEntityType = collidedEntity.entityType;
+      if(collidedEntityType === "rocket") {
+        collidedEntity.destroyRocket()
+      }
     }
   }
-
-  DebugVisual {
-    x: -sprite.width/2
-    y: -sprite.height/2
-    width: sprite.width
-    height: sprite.height
-  }*/
 }

@@ -5,8 +5,8 @@ import "manager"
 
 GameWindow {
   id: window
-  width: 320
-  height: 480
+  width: 480
+  height: 320
 
 
   minimizeable: true
@@ -27,7 +27,6 @@ GameWindow {
   property alias settingsManager: settingsManager
   property alias sceneLoader: sceneLoader
   property alias fontHUD: fontHUD
-
 
   // Custom font loading of ttf fonts
   FontLoader {

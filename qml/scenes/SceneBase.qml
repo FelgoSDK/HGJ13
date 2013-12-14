@@ -5,8 +5,8 @@ import VPlay 1.0
 Scene {
   id: sceneBase
   // this is important, as it serves as the reference size for the mass of the phyiscs objects, because the mass of a body depends on the width of its images
-  width: 320
-  height: 480
+  width: 480
+  height: 320
 
   // required by each scene which uses a controller
   property variant controllerOfScene: dummyController

@@ -5,8 +5,8 @@ import "manager"
 
 GameWindow {
   id: window
-  width: 960
-  height: 640
+  width: 480
+  height: 320
 
 
   minimizeable: true

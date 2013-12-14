@@ -68,8 +68,7 @@ Item {
     settingsManager.balance = 0
     settingsManager.balance2 = 0
 
-    obstacle.origin=Qt.point(centerX, centerY)
-    obstacle.speed = 0.01
+    moon.origin = Qt.point(centerX, centerY)
   }
 
   function getTarget() {
@@ -77,7 +76,7 @@ Item {
   }
 
   function getGravityWells() {
-    return [earth];
+    return [earth, moon];
   }
 
   function getPlayerControllers() {
@@ -137,6 +136,11 @@ Item {
   }
 
   Obstacle {
-    id: obstacle
+    id: moon
+    obstacleType: 2
+    distance: 150
+    speed: 0.005
+    hitpoints: 0
+    gravityForce: 1000000
   }
 }

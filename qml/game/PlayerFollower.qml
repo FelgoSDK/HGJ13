@@ -32,7 +32,7 @@ EntityBase {
   property alias controller: twoAxisController
 
   EditableComponent {
-    editableType: "Game Settings"
+    editableType: "Player"
     properties: {
       "Player": {
         //"weaponAngle":               {"min": 0, "max": 50, "label": "Speed"},

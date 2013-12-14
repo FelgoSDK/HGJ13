@@ -1,17 +1,22 @@
 var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
+var obstacleUrl = Qt.resolvedUrl("../entities/Obstacle.qml");
 var objects = {};
 var objectsCount = 0;
 var players = {};
-var gravityWells = [];
+var gravityWells = {};
 var direction = Qt.point(0,0);
-var objectSettings =  {"x": 0,
+var objectSettings = {
+  "x": 0,
   "y": 0,
   "rotation": 60,
   "target": null,
-  "collisionGroup": 0,
-  //"speed": 7,
-  //"curveFactor": 0.5
+  "collisionGroup": 0
+}
+var obstacleSettings =  {
+  "distance": 40,
+  "speed": 0.005,
+  "origin" : Qt.point(0, 0)
 }
 
 function init() {
@@ -20,6 +25,13 @@ function init() {
 function setPlayers(player1, player2) {
   players[player1.entityId] = player1;
   players[player2.entityId] = player2;
+}
+
+function spawnSatellite() {
+  objectSettings.distance = Math.random() * 120 + 40;
+  objectSettings.speed = Math.random() * 0.095 + 0.005;
+  objectSettings.origin = gravityWells[0].getPosition();
+  var entityId = entityManager.createEntityFromUrlWithProperties(obstacleUrl, obstacleSettings);
 }
 
 function spawnRocket(playerId) {
@@ -46,7 +58,10 @@ function createRockets(target) {
 }
 
 function setGravityWells(wells) {
-  gravityWells = wells;
+  for(var i = 0; i < wells.length; ++i) {
+    var well = wells[i];
+    gravityWells[well.entityId] = true;
+  }
 }
 
 function generateRandomValueBetween(minimum, maximum) {
@@ -64,8 +79,8 @@ function removeObject(entityId) {
 }
 
 function applyGravity() {
-  for(var i = 0; i < gravityWells.length; ++i) {
-    var well = gravityWells[i];
+  for(var wellId in gravityWells) {
+    var well = entityManager.getEntityById(wellId);
     var gravityPosition = well.getPosition();
     for(var entityId in objects) {
       var object = entityManager.getEntityById(entityId);

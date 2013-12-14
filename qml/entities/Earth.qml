@@ -14,13 +14,13 @@ GravityEntity {
 
   property int radius: sprite.width*0.45
 
-  property int gravityForce: 5000000
+  property int gravityForce: 7500000
 
   EditableComponent {
-    editableType: "Game Settings"
+    editableType: "Earth"
     properties: {
       "Earth": {
-        "gravityForce":   {"min": 1000000, "max": 2000000, "stepsize": 500000, "label": "Gravity"},
+        "gravityForce":   {"min": 1000000, "max": 20000000, "stepsize": 500000, "label": "Gravity"},
       }
     }
   }

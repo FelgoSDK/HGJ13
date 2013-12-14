@@ -17,6 +17,8 @@ GravityEntity {
   property real angle: 0
   property variant origin: Qt.point(0, 0)
   property alias collisionGroup: collider.groupIndex
+  property int gravityForce: 0
+  property int hitpoints: 1
   property int obstacleType: 0
 
   onObstacleTypeChanged: {
@@ -29,20 +31,21 @@ GravityEntity {
   }
 
   EditableComponent {
-    editableType: "Game Settings"
+    editableType: "Obstacle"
     properties: {
       "Obstacle": {
         "speed":               {"min": 0.005, "max": 0.1, "stepsize": 0.005, "label": "Speed"},
         "distance":            {"min": 40, "max": 160, "stepsize": 1, "label": "Distance"},
         "obstacleType":        {"min": 0, "max": 2, "stepsize": 1, "label": "Obstacle Type"},
+        "gravityForce":        {"min": 0, "max": 2000000, "stepsize": 100000, "label": "Gravity"},
+        "hitpoints":           {"min": 0, "max": 50, "label": "Hitpoints"},
       }
     }
   }
 
-  BoxCollider {
+  CircleCollider {
     id: collider
-    width: sprite.width
-    height: sprite.height
+    radius: sprite.width * 0.45
     anchors.centerIn: parent
     bodyType: Body.Kinematic
     groupIndex: settingsManager.neutralGroup
@@ -55,7 +58,9 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
-        destroyObstacle()
+        if(--parent.hitpoints === 0) {
+          destroyObstacle()
+        }
       }
     }
   }
@@ -96,14 +101,14 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: variationType+".png"
-    translateToCenterAnchor: false
+   // translateToCenterAnchor: false
   }
 
   DebugVisual {
-    x: collider.x
-    y: collider.y
-    width: collider.width
-    height: collider.height
+    x: collider.x - collider.radius
+    y: collider.y - collider.radius
+    width: collider.radius * 2
+    height: collider.radius * 2
   }
 
   Timer {

@@ -19,7 +19,7 @@ GravityEntity {
   property real oldY: 0
 
   EditableComponent {
-    editableType: "Game Settings"
+    editableType: "Rocket"
     properties: {
       "Rocket": {
         "speed":               {"min": 0, "max": 50, "label": "Speed"},

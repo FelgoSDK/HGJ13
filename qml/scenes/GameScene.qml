@@ -106,6 +106,7 @@ SceneBase {
     gameTime.start()
     LevelLogic.setGravityWells(level.getGravityWells())
     LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
+   // LevelLogic.spawnSatellite();
   }
 
   function stopGame() {

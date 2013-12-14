@@ -51,15 +51,15 @@ Item {
     var height = level.height
     var centerX = width*0.5
     var centerY = height*0.5
-    character.x = playerDragger.x = 0
-    character.y = playerDragger.y = centerY
+    character.x = 0
+    character.y = centerY
     character.weaponPosition = Qt.point(20, 0)
     character.weaponAngle = 0;
     character.minAngle = -60;
     character.maxAngle = 60;
 
-    character2.x = playerDragger2.x = width
-    character2.y = playerDragger2.y = centerY
+    character2.x = width
+    character2.y = centerY
     character2.weaponPosition = Qt.point(-20, 0)
     character2.weaponAngle = 180;
     character2.minAngle = 120;
@@ -91,16 +91,9 @@ Item {
     return character2
   }
 
-  PlayerDragger {
-    id: playerDragger
-    onMoveNow: character.moveNow()
-    onReleasedNow: character.releasedNow()
-  }
-
   PlayerFollower {
     id: character
     entityId: "1"
-    realTarget: playerDragger
     collisionGroup: settingsManager.player1Group
 
     inputActionsToKeyCode: {
@@ -111,17 +104,12 @@ Item {
     }
   }
 
-  PlayerDragger {
-    id: playerDragger2
-    onMoveNow: character2.moveNow()
-    onReleasedNow: character2.releasedNow()
-  }
-
   PlayerFollower {
     id: character2
     entityId: "2"
-    realTarget: playerDragger2
     collisionGroup: settingsManager.player2Group
+
+    rotation: 180
 
     inputActionsToKeyCode: {
         "up": Qt.Key_W,

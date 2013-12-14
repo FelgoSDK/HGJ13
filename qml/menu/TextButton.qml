@@ -5,10 +5,10 @@ Item {
   id: button
 
   property string text: ""
-  property string textColor: "#D3AF1A"
-  property string textColorShadow: "#68090F"
+  property string textColor: "#68090F"
+  property string textColorShadow: "#D3AF1A"
   property variant font
-  property int textSize: 33
+  property int textSize: 170/4//33
 
   signal clicked
   signal pressed
@@ -47,7 +47,7 @@ Item {
     text: button.text
     color: button.textColor
     font.pixelSize: button.textSize
-    anchors.centerIn: button
+    //anchors.centerIn: button
   }
 
   onClicked: {

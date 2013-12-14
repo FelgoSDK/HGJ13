@@ -8,46 +8,39 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/splash_screen-sd.png"
+    source: "../img/title-sd.png"
   }
 
-  /*Row {
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.bottom: parent.bottom
-    anchors.bottomMargin: 10
-    spacing: 10*/
-
-    TextButton {
-      x: 1250/4
-      y: 710/4-50
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        sceneLoader.activateLoadingScene()
-      }
-      font: fontHUD
-      text: qsTr("PLAY")+translation.language
+  TextButton {
+    x: 275/4-384/8
+    y: 960/4-192/8
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      sceneLoader.activateLoadingScene()
     }
-    TextButton {
-      x: 370/4
-      y: 1170/4-50
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        sceneLoader.activateCreditsScene()
-      }
-      font: fontHUD
-      text: qsTr("ABOUT")+translation.language
+    font: fontHUD
+    text: qsTr("play")+translation.language
+  }
+  TextButton {
+    x: 765/4-384/8
+    y: 960/4-192/8
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      sceneLoader.activateOptionsScene()
     }
-    TextButton {
-      x: 740/4
-      y: 930/4-50
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        sceneLoader.activateOptionsScene()
-      }
-      font: fontHUD
-      text: qsTr("OPTIONS")+translation.language
+    font: fontHUD
+    text: qsTr("options")+translation.language
+  }
+  TextButton {
+    x: 1520/4-384/8
+    y: 960/4-192/8
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      sceneLoader.activateCreditsScene()
     }
-  //}
+    font: fontHUD
+    text: qsTr("about")+translation.language
+  }
 
   Connections {
     // nativeUtils should only be connected, when this is the active scene

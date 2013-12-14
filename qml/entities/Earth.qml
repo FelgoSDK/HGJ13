@@ -14,6 +14,17 @@ GravityEntity {
 
   property int radius: sprite.width*0.45
 
+  property int gravityForce: 5000000
+
+  EditableComponent {
+    editableType: "Game Settings"
+    properties: {
+      "Earth": {
+        "gravityForce":   {"min": 1000000, "max": 2000000, "stepsize": 500000, "label": "Gravity"},
+      }
+    }
+  }
+
   SingleSpriteFromFile {
     id: sprite
     filename: "../img/images-sd.json"

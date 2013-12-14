@@ -19,6 +19,16 @@ GravityEntity {
   property real oldX: 0
   property real oldY: 0
 
+  EditableComponent {
+    editableType: "Game Settings"
+    properties: {
+      "Rocket": {
+        "speed":               {"min": 0, "max": 50, "label": "Speed"},
+        "curveFactor":           {"min": 0, "max": 1, "stepsize": 0.01, "label": "Curve"},
+      }
+    }
+  }
+
   BoxCollider {
     id: collider
     width: sprite.width

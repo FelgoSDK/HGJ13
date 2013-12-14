@@ -1,7 +1,6 @@
 import QtQuick 1.1
 import VPlay 1.0
 import "../menu"
-import "../"
 
 SceneBase {
   id: scene
@@ -9,6 +8,22 @@ SceneBase {
   Background {
     anchors.centerIn: scene.gameWindowAnchorItem
     source: "../img/title-sd.png"
+  }
+
+  TextButton {
+    x: 330/4-384/8
+    y: 100/4-192/8
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      sceneLoader.activateLoadingScene()
+    }
+    font: fontLetterHUD
+    text: qsTr("1969")+translation.language
+    textSize: 150
+    textColor: "#D3AF1A"
+    textColorShadow: "#68090F"
+    offsetX: 8
+    offsetY: 8
   }
 
   TextButton {

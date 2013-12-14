@@ -8,7 +8,9 @@ Item {
   property string textColor: "#68090F"
   property string textColorShadow: "#D3AF1A"
   property variant font
-  property int textSize: 170/4//33
+  property int textSize: 170/4
+  property int offsetX: 3
+  property int offsetY: 3
 
   signal clicked
   signal pressed
@@ -30,8 +32,8 @@ Item {
 
   Text {
     id: textShadow
-    x: text.x+3
-    y: text.y+3
+    x: text.x+button.offsetX
+    y: text.y+button.offsetY
     //z:2
     font.family: button.font ? button.font.name : fontHUD.name
     text: button.text
@@ -59,5 +61,23 @@ Item {
 
   onReleased: {
     opacity = 1.0
+  }
+
+  Timer {
+    id: randomColorTimer
+    interval: 200
+    repeat: true
+    onTriggered: textShadow.color = getRandomColor()
+  }
+
+  Component.onCompleted: randomColorTimer.start()
+
+  function getRandomColor() {
+      var letters = '0123456789ABCDEF'.split('');
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.round(Math.random() * 15)];
+      }
+      return color;
   }
 }

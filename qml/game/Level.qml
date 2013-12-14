@@ -67,6 +67,9 @@ Item {
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0
+
+    obstacle.origin=Qt.point(centerX, centerY)
+    obstacle.speed = 0.01
   }
 
   function getTarget() {
@@ -131,5 +134,9 @@ Item {
 
   Earth {
     id: earth
+  }
+
+  Obstacle {
+    id: obstacle
   }
 }

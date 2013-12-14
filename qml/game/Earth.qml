@@ -10,6 +10,9 @@ EntityBase {
   width: sprite.width
   height: sprite.height
 
+  property int radius: sprite.width*0.5
+  property int gravityRadius: radius*4
+
   SingleSpriteFromFile {
     id: sprite
     filename: "../img/images-sd.json"
@@ -17,6 +20,17 @@ EntityBase {
     translateToCenterAnchor: false
   }
 
+  CircleCollider {
+    id: collider
+    radius: parent.radius
+    friction: 1
+    bodyType: Body.Static
+
+    collisionTestingOnlyMode: true
+    sensor: false
+    categories: settingsManager.playerColliderGroup
+    fixedRotation: true
+  }
   /*  CircleCollider {
     id: collider
     radius: sprite.width/2

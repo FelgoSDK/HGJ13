@@ -95,7 +95,7 @@ EntityBase {
     repeat: true
     interval: 16
     onTriggered: {
-      calPos()
+      //calPos()
     }
   }
 
@@ -141,8 +141,8 @@ EntityBase {
     width: sprite.width
     height: sprite.height
 
-    collisionTestingOnlyMode: true
-    sensor: true
+    //collisionTestingOnlyMode: true
+    //sensor: true
     categories: settingsManager.playerColliderGroup
 
     fixedRotation: true
@@ -158,6 +158,11 @@ EntityBase {
       }
     }
   }
+
+  function applyGravity(forward) {
+    collider.applyLinearImpulse(forward,collider.body.getWorldCenter())
+  }
+
   DebugVisual {
     x: -sprite.width/2
     y: -sprite.height/2

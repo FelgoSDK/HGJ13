@@ -12,15 +12,6 @@ Item {
     color: "#263357"
   }
 
-  property alias progressRect: progressRect
-  Rectangle {
-    id:progressRect
-    x: 106
-    y: 160
-    width: 110/maxprogress*progress
-    height: 80
-  }
-
   Background {
     id: levelBackground
 
@@ -28,18 +19,11 @@ Item {
     source: "../img/bg_ingame-sd.png"
   }
 
-  property int progress: 0
-  property int maxprogress: 600
-  function updateProgress() {
-    progress++
-    if(progress >= maxprogress) {
-      progress = 0
-      scene.stopGame()
-    }
+  function update() {
+    character.applyGravity(Qt.point(1,0));
   }
 
   function reset() {
-    progressRect.visible = true
     var width = level.width
     var height = level.height
     var centerX = width*0.5
@@ -50,7 +34,6 @@ Item {
     character2.x = playerDragger2.x = width
     character2.y = playerDragger2.y = centerY
 
-    progress = 0
     settingsManager.balance = 0
     settingsManager.balance2 = 0
   }

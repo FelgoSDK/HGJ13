@@ -102,7 +102,7 @@ SceneBase {
     interval: 50
     repeat: true
     onTriggered: {
-      level.updateProgress()
+      level.update()
     }
 
   }

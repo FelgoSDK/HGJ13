@@ -8,6 +8,7 @@ GravityEntity {
   poolingEnabled: true
   width: sprite.width
   height: sprite.height
+  // scale: 0.5
 
   variationType: "1"
 
@@ -15,6 +16,8 @@ GravityEntity {
   property int speed: 7
   property real curveFactor: 0.05
   property alias collisionGroup: collider.groupIndex
+  property real oldX: 0
+  property real oldY: 0
 
   BoxCollider {
     id: collider
@@ -106,10 +109,18 @@ GravityEntity {
         var forward = Qt.point(rocket.speed * Math.cos(heading), rocket.speed * Math.sin(heading));
         collider.body.applyLinearImpulse(forward,getPosition());
       } else {
+        var position  = getPosition()
+        if(oldX && oldY) {
+          var dx = position.x - oldX;
+          var dy = position.y - oldY;
+          rocket.rotation = (1 - rocket.curveFactor) * rocket.rotation + rocket.curveFactor * Math.atan2(dy, dx) * 180 / Math.PI;
+        }
+
         var angle = rocket.rotation * Math.PI / 180;
         var forward2 = Qt.point(rocket.speed * Math.cos(angle), rocket.speed * Math.sin(angle));
-        console.debug(angle, rocket.rotation, forward2.x, forward2.y);
-        collider.body.applyLinearImpulse(forward2,getPosition());
+        collider.body.applyLinearImpulse(forward2, position);
+        oldX = position.x;
+        oldY = position.y;
       }
     }
   }

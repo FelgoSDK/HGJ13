@@ -9,6 +9,8 @@ GravityEntity {
   width: sprite.width
   height: sprite.height
 
+  variationType: "1"
+
   property variant target: undefined
   property int speed: 7
   property real curveFactor: 0.05
@@ -25,7 +27,7 @@ GravityEntity {
   SingleSpriteFromFile {
     id: sprite
     filename: "../img/images-sd.json"
-    source: "rocket.png"
+    source: "rocket"+variationType+".png"
     translateToCenterAnchor: false
   }
 

@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>vplay</string>
         <key>textureFileName</key>
-        <filename>../../qml/img/images-hd2.png</filename>
+        <filename>../../qml/img/images-hd.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../qml/img/images-hd2.json</filename>
+                <filename>../../qml/img/images-hd.json</filename>
             </struct>
             <key>java</key>
             <struct type="DataFile">
@@ -155,7 +155,7 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>1</double>
+            <double>0.5</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>innerPadding</key>
@@ -192,6 +192,8 @@
             <filename>earth.png</filename>
             <filename>rocket.png</filename>
             <filename>comet.png</filename>
+            <filename>rocket2.png</filename>
+            <filename>rocket1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

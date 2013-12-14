@@ -100,7 +100,7 @@ Item {
 
   PlayerFollower {
     id: character
-    entityId: "p1"
+    entityId: "1"
     realTarget: playerDragger
     collisionGroup: settingsManager.player1Group
 
@@ -120,7 +120,7 @@ Item {
 
   PlayerFollower {
     id: character2
-    entityId: "p2"
+    entityId: "2"
     realTarget: playerDragger2
     collisionGroup: settingsManager.player2Group
 

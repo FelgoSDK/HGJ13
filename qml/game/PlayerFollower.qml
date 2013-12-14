@@ -9,7 +9,7 @@ EntityBase {
   preventFromRemovalFromEntityManager: true
 
   entityType: "player"
-  entityId: "r"
+  entityId: "1"
   property variant weaponPosition: Qt.point(20, 0)
   property real weaponAngle: 0
   property real minAngle: 0
@@ -54,15 +54,13 @@ EntityBase {
     Sprite {
       name: "idle"
       frameNames: [
-        entityId+"1.png",
-        entityId+"1.png",
-        entityId+"1.png"
+        entityType+entityId+".png",
       ]
       frameRate: followerEntity.frameRate
 
       loop: true
     }
-    Sprite {
+    /*Sprite {
       name: "run"
       frameNames: [
         entityId+"1.png",
@@ -72,7 +70,7 @@ EntityBase {
       ]
       frameRate: followerEntity.frameRate
       loop: true
-    }
+    }*/
   }
 
   property bool runstarted: false
@@ -155,6 +153,7 @@ EntityBase {
     repeat: true
     onTriggered: {
       if(parent.isShooting) {
+        audioManager.play(audioManager.idSHOOT)
         scene.spawnRocket(parent.entityId);
       } else {
         shootingTimer.stop()
@@ -217,9 +216,7 @@ EntityBase {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-      if(collidedEntityType === "pedestrian") {
-        //audioManager.play(audioManager.idNEVER)
-      }
+
     }
   }
 

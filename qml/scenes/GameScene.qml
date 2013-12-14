@@ -54,7 +54,7 @@ SceneBase {
   property bool gameIsRunning: false
 
   function initScene() {
-    //LevelLogic.init()
+    LevelLogic.init()
   }
 
   onOpacityChanged: {
@@ -85,6 +85,7 @@ SceneBase {
     gameIsRunning = true
     level.reset()
     gameTime.start()
+    LevelLogic.createRockets(level.getTarget());
   }
 
   function stopGame() {

@@ -38,7 +38,9 @@ Item {
     settingsManager.balance2 = 0
   }
 
-
+  function getTarget() {
+    return character2;
+  }
 
   PlayerDragger {
     id: playerDragger
@@ -66,19 +68,5 @@ Item {
 
   Earth {
     id: earth
-  }
-
-  Rocket {
-    id: rocket1
-    y: earth.y
-    x: 30
-    target: rocket2
-  }
-
-  Rocket {
-    id: rocket2
-    y: earth.y
-    x: 230
-    target: rocket1
   }
 }

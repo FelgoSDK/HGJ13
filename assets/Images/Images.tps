@@ -64,7 +64,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>2</uint>
+        <uint>1</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -159,7 +159,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>innerPadding</key>
-            <uint>2</uint>
+            <uint>1</uint>
             <key>extrude</key>
             <uint>0</uint>
             <key>trimThreshold</key>
@@ -171,7 +171,6 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>debugrect.png</filename>
             <filename>earth.png</filename>
             <filename>comet.png</filename>
             <filename>rocket2.png</filename>

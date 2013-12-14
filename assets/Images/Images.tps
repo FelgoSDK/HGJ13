@@ -189,6 +189,8 @@
             <filename>cheese.png</filename>
             <filename>debugrect.png</filename>
             <filename>options.png</filename>
+            <filename>earth.png</filename>
+            <filename>rocket.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

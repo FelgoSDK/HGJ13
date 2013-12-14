@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>vplay</string>
         <key>textureFileName</key>
-        <filename>images-hd2.png</filename>
+        <filename>../../qml/img/images-hd2.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>images-hd2.json</filename>
+                <filename>../../qml/img/images-hd2.json</filename>
             </struct>
             <key>java</key>
             <struct type="DataFile">
@@ -191,6 +191,7 @@
             <filename>options.png</filename>
             <filename>earth.png</filename>
             <filename>rocket.png</filename>
+            <filename>comet.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

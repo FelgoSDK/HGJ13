@@ -12,7 +12,7 @@ SceneBase {
 
   Timer {
     id: changeToNextSceneTimer
-    interval: 30000
+    interval: 3000
     onTriggered: {
       sceneLoader.activateMainMenuScene()
     }

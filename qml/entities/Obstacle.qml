@@ -14,9 +14,19 @@ GravityEntity {
   property variant target: undefined
   property real speed: 0.1
   property int distance: 100
-  property real angle: 100
+  property real angle: 0
   property variant origin: Qt.point(0, 0)
   property alias collisionGroup: collider.groupIndex
+
+  EditableComponent {
+    editableType: "Game Settings"
+    properties: {
+      "Obstacle": {
+        "speed":               {"min": 0.005, "max": 0.1, "stepsize": 0.005, "label": "Speed"},
+        "distance":           {"min": 40, "max": 160, "stepsize": 1, "label": "Distance"},
+      }
+    }
+  }
 
   BoxCollider {
     id: collider

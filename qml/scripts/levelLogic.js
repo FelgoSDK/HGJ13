@@ -1,6 +1,7 @@
 var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
 var objects = {};
+var objectsCount = 0;
 var gravityWells = [];
 var impulse = Qt.point(0,0);
 var objectSettings =  {"x": 0,
@@ -34,10 +35,12 @@ function generateRandomValueBetween(minimum, maximum) {
 
 function addObject(entityId) {
   objects[entityId] = entityManager.getEntityById(entityId);
+  objectsCount++;
 }
 
 function removeObject(entityId) {
   delete objects[entityId];
+  objectsCount--
 }
 
 function applyGravity() {

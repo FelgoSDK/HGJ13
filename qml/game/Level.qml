@@ -13,32 +13,34 @@ Item {
     source: "../img/bg_ingame-sd.png"
   }
 
+  property int borderOffset: 140
+
   BorderElement {
-    x: scene.gameWindowAnchorItem.x
-    y: scene.gameWindowAnchorItem.y-20
-    width: scene.gameWindowAnchorItem.width
+    x: scene.gameWindowAnchorItem.x-borderOffset
+    y: scene.gameWindowAnchorItem.y-20-borderOffset
+    width: scene.gameWindowAnchorItem.width+borderOffset+borderOffset
     height: 20
   }
 
   BorderElement {
-    x: scene.gameWindowAnchorItem.x
-    y: scene.gameWindowAnchorItem.y+scene.gameWindowAnchorItem.height
-    width: scene.gameWindowAnchorItem.width
+    x: scene.gameWindowAnchorItem.x-borderOffset
+    y: scene.gameWindowAnchorItem.y+scene.gameWindowAnchorItem.height+borderOffset
+    width: scene.gameWindowAnchorItem.width+borderOffset+borderOffset
     height: 20
   }
 
   BorderElement {
-    x: scene.gameWindowAnchorItem.x-20
-    y: scene.gameWindowAnchorItem.y
+    x: scene.gameWindowAnchorItem.x-20-borderOffset
+    y: scene.gameWindowAnchorItem.y-borderOffset
     width: 20
-    height: scene.gameWindowAnchorItem.height
+    height: scene.gameWindowAnchorItem.height+borderOffset+borderOffset
   }
 
   BorderElement {
-    x: scene.gameWindowAnchorItem.x+scene.gameWindowAnchorItem.width
-    y: scene.gameWindowAnchorItem.y
+    x: scene.gameWindowAnchorItem.x+scene.gameWindowAnchorItem.width+borderOffset
+    y: scene.gameWindowAnchorItem.y-borderOffset
     width: 20
-    height: scene.gameWindowAnchorItem.height
+    height: scene.gameWindowAnchorItem.height+borderOffset+borderOffset
   }
 
   function update() {

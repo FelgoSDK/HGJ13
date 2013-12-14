@@ -33,8 +33,6 @@ SceneBase {
     redWins.visible = false
     greenWins.visible = false
 
-    audioManager.playMusic(audioManager.idMusicFanfare)
-
     opacity = 1
     if(settingsManager.balance === settingsManager.balance2) {
       drawWins.visible = true

@@ -85,7 +85,7 @@ SceneBase {
   function open() {
     opacity = 1
     audioManager.stopMusic()
-    audioManager.playMusic()
+    audioManager.playMusic(audioManager.idMusicINGAME)
   }
 
   function close() {

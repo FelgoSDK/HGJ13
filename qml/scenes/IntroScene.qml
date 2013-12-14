@@ -19,7 +19,6 @@ SceneBase {
   }
 
   Component.onCompleted: {
-    audioManager.playMusic(audioManager.idMusicBG)
     changeToNextSceneTimer.start()
   }
 

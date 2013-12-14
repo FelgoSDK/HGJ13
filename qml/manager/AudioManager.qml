@@ -6,16 +6,13 @@ Item {
 
   // Use Sound IDs to play Sounds e.g. audioManager.play(audioManager.idBUTTON)
   property int idBUTTON: 11
-  property int idURAD: 22
-  property int idURAG: 33
-  property int idDRUG: 44
-  property int idNEVER: 55
-  property int idEND: 66
+  property int idEXPOLOSION: 22
+  property int idSHOOT: 33
+
 
   // Use Music IDs to play Music. e.g. audioManager.playMusic(audioManager.idMusicBG)
   property int idMusicBG: 111
-  property int idMusicFanfare: 222
-  property int idMusicCROWD: 333
+  property int idMusicINGAME: 222
 
   function play(clipID) {
     // if settings disable do not play sounds
@@ -26,20 +23,11 @@ Item {
     case idBUTTON:
       clip.source = "../audio/button.wav"
       break
-    case idURAD:
-      clip.source = "../audio/ura_d.wav"
+    case idEXPOLOSION:
+      clip.source = "../audio/explosion.wav"
       break
-    case idURAG:
-      clip.source = "../audio/ura_g.wav"
-      break
-    case idDRUG:
-      clip.source = "../audio/drug.wav"
-      break
-    case idNEVER:
-      clip.source = "../audio/never.wav"
-      break
-    case idEND:
-      clip.source = "../audio/end_music.mp3"
+    case idSHOOT:
+      clip.source = "../audio/shoot.wav"
       break
     }
 
@@ -60,13 +48,9 @@ Item {
       music.source = "../audio/title_music.wav"
       music.volume = 1
       break
-    case idMusicFanfare:
-      music.source = "../audio/end_music.mp3"
+    case idMusicINGAME:
+      music.source = "../audio/ingame_music.wav"
       music.volume = 1
-      break
-    case idMusicCROWD:
-      music.source = "../audio/crowd.wav"
-      music.volume = 0.2
       break
     }
 

@@ -93,7 +93,6 @@ SceneBase {
   }
 
   function stopGame() {
-    level.progressRect.visible = false
     if(!gameIsRunning)
       return
 

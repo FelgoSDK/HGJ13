@@ -34,7 +34,7 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-      if(collidedEntityType === "rocket") {
+      if(collidedEntityType === "rocket" || collidedEntityType === "obstacle") {
         destroyRocket()
       }
     }

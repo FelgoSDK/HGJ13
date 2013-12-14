@@ -67,6 +67,12 @@ Item {
     return [earth];
   }
 
+  property alias character: character
+  function getPlayerControllers() {
+    console.debug("got it ");
+    return [character.controller, character2.controller]
+  }
+
   PlayerDragger {
     id: playerDragger
     onMoveNow: character.moveNow()
@@ -77,6 +83,13 @@ Item {
     id: character
     entityId: "r"
     realTarget: playerDragger
+
+    inputActionsToKeyCode: {
+        "up": Qt.Key_Up,
+        "down": Qt.Key_Down,
+        "left": Qt.Key_Left,
+        "right": Qt.Key_Right
+    }
   }
 
   PlayerDragger {
@@ -89,6 +102,13 @@ Item {
     id: character2
     entityId: "g"
     realTarget: playerDragger2
+
+    inputActionsToKeyCode: {
+        "up": Qt.Key_W,
+        "down": Qt.Key_S,
+        "left": Qt.Key_A,
+        "right": Qt.Key_D
+    }
   }
 
   Earth {

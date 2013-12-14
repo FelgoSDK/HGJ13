@@ -17,6 +17,11 @@ EntityBase {
 
   property real frameRate: 7
 
+  property alias inputActionsToKeyCode: twoAxisController.inputActionsToKeyCode
+
+  // gets accessed to insert the input when touching the HUDController
+  property alias controller: twoAxisController
+
   SpriteSequenceFromFile {
     id: sprite
     translateToCenterAnchor: true
@@ -99,7 +104,16 @@ EntityBase {
     }
   }
 
-/*  MoveToPointHelper {
+  TwoAxisController {
+    id: twoAxisController
+
+    // call the logic function when an input press (possibly the fire event) is received
+    onInputActionPressed: function(actionName) {
+                            console.debug(actionName)
+                          }
+  }
+
+  /*  MoveToPointHelper {
     id: moveToPointHelper
     // the entity to move towards
     targetObject: realTarget

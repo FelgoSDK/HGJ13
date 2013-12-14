@@ -17,7 +17,7 @@ Item {
     sceneLoader1.source = splashScene
 
     // faster debug
-    //sceneLoader1.source = mainMenuScene
+    sceneLoader1.source = gameScene
 
     sceneLoader1.activateScene()
   }

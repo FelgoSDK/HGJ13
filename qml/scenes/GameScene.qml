@@ -48,7 +48,7 @@ SceneBase {
   property bool gameIsRunning: false
 
   function initScene() {
-    LevelLogic.init()
+    //LevelLogic.init()
   }
 
   onOpacityChanged: {

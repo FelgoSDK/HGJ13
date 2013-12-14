@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorCodeStyle>
+<!-- Written by Qt Creator 2.5.0, 2012-07-12T14:36:50. -->
+<qtcreator>
+ <data>
+  <variable>CodeStyleData</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="AutoSpacesForTabs">false</value>
+   <value type="int" key="IndentSize">2</value>
+   <value type="int" key="PaddingMode">2</value>
+   <value type="bool" key="SpacesForTabs">true</value>
+   <value type="int" key="TabSize">2</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DisplayName</variable>
+  <value type="QString">V-Play</value>
+ </data>
+</qtcreator>

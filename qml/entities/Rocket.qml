@@ -29,9 +29,42 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-      scene.removeEntityFromLogic(collidedEntity);
-      collidedEntity.removeEntity();
+      if(collidedEntityType === "rocket") {
+        destroyRocket()
+      }
     }
+  }
+
+  Particle {
+    id: flyer
+
+    //x: sprite.x+sprite.width/2
+    //y: sprite.y+sprite.height/2
+
+    // particle file
+    fileName: "../particles/BoingStar.json"
+
+    // start when finished loading
+    autoStart: false
+    //scale: 0.2
+    duration: 0.3
+
+    onRunningChanged: {
+      if(!running) {
+        rmvEntity()
+      }
+    }
+  }
+
+  function destroyRocket() {
+    collider.active = false
+    sprite.visible = false
+    flyer.start()
+  }
+
+  function rmvEntity() {
+    scene.removeEntityFromLogic(rocket)
+    collidedEntity.removeEntity()
   }
 
   SingleSpriteFromFile {

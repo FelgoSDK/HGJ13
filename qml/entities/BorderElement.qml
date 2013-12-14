@@ -32,7 +32,7 @@ EntityBase {
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
         // the obstacle is pooled for better performance
-        collidedEntity.removeEntity();
+        collidedEntity.destroyRocket();
       }
     }
   }

@@ -16,6 +16,7 @@ EntityBase {
   property real maxAngle: 0
   property real speed: 1
   property bool isShooting: false
+  property int attackCooldown: 500
 
   property variant realTarget
 
@@ -136,7 +137,7 @@ EntityBase {
 
   Timer {
     id: shootingTimer
-    interval: 1000
+    interval: parent.attackCooldown
     running: false
     repeat: true
     onTriggered: {

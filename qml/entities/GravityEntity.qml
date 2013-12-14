@@ -6,7 +6,7 @@ EntityBase {
     return collider.body.getWorldCenter()
   }
 
-  function applyGravityImpulse(forward) {
-    collider.body.applyLinearImpulse(forward, getPosition())
+  function applyGravity(direction) {
+    collider.body.applyForce(direction, getPosition())
   }
 }

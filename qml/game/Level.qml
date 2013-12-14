@@ -53,15 +53,15 @@ Item {
     character.y = playerDragger.y = centerY
     character.weaponPosition = Qt.point(20, 0)
     character.weaponAngle = 0;
-    character.minAngle = -45;
-    character.maxAngle = 45;
+    character.minAngle = -60;
+    character.maxAngle = 60;
 
     character2.x = playerDragger2.x = width
     character2.y = playerDragger2.y = centerY
     character2.weaponPosition = Qt.point(-20, 0)
     character2.weaponAngle = 180;
-    character2.minAngle = 135;
-    character2.maxAngle = 225;
+    character2.minAngle = 120;
+    character2.maxAngle = 240;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0

@@ -13,7 +13,6 @@ GravityEntity {
   //height: sprite.height
 
   property int radius: sprite.width*0.45
-  property int gravityRadius: radius*4
 
   SingleSpriteFromFile {
     id: sprite

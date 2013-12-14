@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>vplay</string>
         <key>textureFileName</key>
-        <filename>../../qml/img/images-hd.png</filename>
+        <filename>../../qml/img/images-hd2.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../qml/img/images-hd.json</filename>
+                <filename>../../qml/img/images-hd2.json</filename>
             </struct>
             <key>java</key>
             <struct type="DataFile">
@@ -155,7 +155,7 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>0.5</double>
+            <double>1</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>innerPadding</key>
@@ -171,29 +171,16 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>p1.png</filename>
-            <filename>p2.png</filename>
-            <filename>p3.png</filename>
-            <filename>g1.png</filename>
-            <filename>g2.png</filename>
-            <filename>g3.png</filename>
-            <filename>r1.png</filename>
-            <filename>r2.png</filename>
-            <filename>r3.png</filename>
-            <filename>gc1.png</filename>
-            <filename>gc2.png</filename>
-            <filename>gc3.png</filename>
-            <filename>rc3.png</filename>
-            <filename>rc1.png</filename>
-            <filename>rc2.png</filename>
             <filename>cheese.png</filename>
             <filename>debugrect.png</filename>
-            <filename>options.png</filename>
             <filename>earth.png</filename>
-            <filename>rocket.png</filename>
             <filename>comet.png</filename>
             <filename>rocket2.png</filename>
             <filename>rocket1.png</filename>
+            <filename>player2.png</filename>
+            <filename>satellite.png</filename>
+            <filename>moon.png</filename>
+            <filename>player1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

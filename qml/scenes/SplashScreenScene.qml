@@ -1,5 +1,5 @@
-import QtQuick 1.1
 import VPlay 1.0
+import QtQuick 1.1
 import "../menu"
 
 SceneBase {
@@ -7,12 +7,12 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene
-    source: "../img/splash_screen-sd.png"
+    source: "../img/splash-sd.png"
   }
 
   Timer {
     id: changeToNextSceneTimer
-    interval: 30000
+    interval: 3000
     onTriggered: {
       sceneLoader.activateIntroScene()
     }

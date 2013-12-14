@@ -5,8 +5,8 @@ import "manager"
 
 GameWindow {
   id: window
-  width: 480
-  height: 320
+  width: 960
+  height: 640
 
 
   minimizeable: true
@@ -47,13 +47,5 @@ GameWindow {
   // settings can be stored directly by the settings manager
   SettingsManager {
     id: settingsManager
-  }
-
-  EntityManager {
-    id: entityManager
-    // forward container allways to container of scene
-    entityContainer: activeScene.entityContainerOfScene
-    // forward dynamic entity list e.g. used for level editor
-    //dynamicCreationEntityList: activeScene.dynamicCreationEntityList
   }
 }

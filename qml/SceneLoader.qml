@@ -29,7 +29,6 @@ Item {
 
     onSourceChanged: {
       if(item) {
-        entityManager.removeAllEntities()
         activeScene = item
         activeScene.initScene()
       }
@@ -67,7 +66,7 @@ Item {
           //console.log("[SceneLoader1] Scene deactivated and activate next scene ", utils.cropPath(sceneLoader1.source, true),sceneLoader1.busy)
           sceneLoader1.busy = false
           sceneLoader2.activateScene()
-          sceneLoader1.source = ""
+          //sceneLoader1.source = ""
         }
       }
     }
@@ -80,7 +79,6 @@ Item {
 
     onSourceChanged: {
       if(item) {
-        entityManager.removeAllEntities()
         activeScene = item
         activeScene.initScene()
       }
@@ -119,7 +117,7 @@ Item {
           //console.log("[SceneLoader2] Scene deactivated and activate next scene ", utils.cropPath(sceneLoader2.source, true),sceneLoader2.busy)
           sceneLoader2.busy = false
           sceneLoader1.activateScene()
-          sceneLoader2.source = ""
+          //sceneLoader2.source = ""
         }
       }
     }

@@ -6,7 +6,6 @@ import "../game"
 SceneBase {
   id: scene
 
-
   // allows collision detection with pyhsics colliders (BoxColliders, CircleColliders and PolygonColliders)
   // it supports 2 modes:
   //  - for collision testing (set collisionTestingOnlyMode to true) when the positions get updated manually, e.g. by animations
@@ -26,7 +25,14 @@ SceneBase {
     debugDrawVisible: true
   }
 
-  entityContainerOfScene: level
+  EntityManager {
+    id: entityManager
+    // forward container allways to container of scene
+    entityContainer: level// entityContainerOfScene
+    // forward dynamic entity list e.g. used for level editor
+    //dynamicCreationEntityList: activeScene.dynamicCreationEntityList
+  }
+  //entityContainerOfScene: level
 
   Level {
     id: level

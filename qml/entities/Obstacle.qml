@@ -17,13 +17,24 @@ GravityEntity {
   property real angle: 0
   property variant origin: Qt.point(0, 0)
   property alias collisionGroup: collider.groupIndex
+  property int obstacleType: 0
+
+  onObstacleTypeChanged: {
+    switch(obstacleType) {
+      case 2: variationType = "moon"; break;
+      case 1: variationType = "comet"; break;
+      case 0:
+      default: variationType = "satellite"; break;
+    }
+  }
 
   EditableComponent {
     editableType: "Game Settings"
     properties: {
       "Obstacle": {
         "speed":               {"min": 0.005, "max": 0.1, "stepsize": 0.005, "label": "Speed"},
-        "distance":           {"min": 40, "max": 160, "stepsize": 1, "label": "Distance"},
+        "distance":            {"min": 40, "max": 160, "stepsize": 1, "label": "Distance"},
+        "obstacleType":        {"min": 0, "max": 2, "stepsize": 1, "label": "Obstacle Type"},
       }
     }
   }

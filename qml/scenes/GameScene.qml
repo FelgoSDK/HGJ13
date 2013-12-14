@@ -45,6 +45,12 @@ SceneBase {
     height: parent.height
   }
 
+  Text {
+    id: debugTextForRockets
+    color: "white"
+    visible: developerBuild
+  }
+
   Button  {
     anchors.right: scene.gameWindowAnchorItem.right
     anchors.top: scene.gameWindowAnchorItem.top
@@ -113,6 +119,11 @@ SceneBase {
     onTriggered: {
       level.update()
       LevelLogic.applyGravity();
+
+      if(debugTextForRockets.visible) {
+        debugTextForRockets.text = LevelLogic.objectsCount
+      }
+
     }
 
   }

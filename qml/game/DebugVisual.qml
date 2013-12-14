@@ -5,11 +5,3 @@ Rectangle {
   opacity: 0.5
   visible: settingsManager.debugVisualsEnabled && developerBuild
 }
-/*
-SingleSpriteFromFile {
-  filename: "../img/images-sd.json"
-  source: "debugrect.png"
-  translateToCenterAnchor: false
-  opacity: 0.5
-  visible: settingsManager.debugVisualsEnabled
-}*/

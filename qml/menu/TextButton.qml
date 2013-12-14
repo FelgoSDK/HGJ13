@@ -5,7 +5,8 @@ Item {
   id: button
 
   property string text: ""
-  property string textColor: "#ffffff"
+  property string textColor: "#D3AF1A"
+  property string textColorShadow: "#68090F"
   property variant font
   property int textSize: 33
 
@@ -28,8 +29,20 @@ Item {
   }
 
   Text {
+    id: textShadow
+    x: text.x+3
+    y: text.y+3
+    //z:2
+    font.family: button.font ? button.font.name : fontHUD.name
+    text: button.text
+    color: button.textColorShadow
+    font.pixelSize: button.textSize
+  }
+
+
+  Text {
     id: text
-    z:2
+    //z:2
     font.family: button.font ? button.font.name : fontHUD.name
     text: button.text
     color: button.textColor

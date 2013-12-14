@@ -21,12 +21,12 @@ Item {
     height: 80
   }
 
-  /*Background {
+  Background {
     id: levelBackground
 
     anchors.centerIn: level
     source: "../img/bg_ingame-sd.png"
-  }*/
+  }
 
   property int progress: 0
   property int maxprogress: 600
@@ -55,6 +55,8 @@ Item {
     settingsManager.balance2 = 0
   }
 
+
+
   PlayerDragger {
     id: playerDragger
     onMoveNow: character.moveNow()
@@ -81,5 +83,19 @@ Item {
 
   Earth {
     id: earth
+  }
+
+  Rocket {
+    id: rocket1
+    y: earth.y
+    x: 30
+    target: rocket2
+  }
+
+  Rocket {
+    id: rocket2
+    y: earth.y
+    x: 230
+    target: rocket1
   }
 }

@@ -6,6 +6,9 @@ import "../game"
 SceneBase {
   id: scene
 
+  // debug scale to see whole scene and colliders
+  //scale: 0.5
+
   // allows collision detection with pyhsics colliders (BoxColliders, CircleColliders and PolygonColliders)
   // it supports 2 modes:
   //  - for collision testing (set collisionTestingOnlyMode to true) when the positions get updated manually, e.g. by animations

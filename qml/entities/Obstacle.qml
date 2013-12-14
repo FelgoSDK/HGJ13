@@ -96,14 +96,14 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: variationType+".png"
-    //translateToCenterAnchor: false
+    translateToCenterAnchor: false
   }
 
   DebugVisual {
-    x: -sprite.width/2
-    y: -sprite.height/2
-    width: sprite.width
-    height: sprite.height
+    x: collider.x
+    y: collider.y
+    width: collider.width
+    height: collider.height
   }
 
   Timer {

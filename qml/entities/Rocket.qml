@@ -8,7 +8,6 @@ GravityEntity {
   poolingEnabled: true
   width: sprite.width
   height: sprite.height
-  // scale: 0.5
 
   variationType: "1"
 
@@ -32,10 +31,10 @@ GravityEntity {
   BoxCollider {
     id: collider
     width: sprite.width
-    height: sprite.height
+    height: sprite.height/2
     anchors.centerIn: parent
-    body.bullet: true
-    body.fixedRotation: true
+    bullet: true
+    fixedRotation: true
     groupIndex: settingsManager.neutralGroup
 
     fixture.onBeginContact: {
@@ -45,6 +44,7 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket" || collidedEntityType === "obstacle") {
+        audioManager.play(audioManager.idEXPOLOSION)
         destroyRocket()
       }
     }
@@ -86,14 +86,14 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: "rocket"+variationType+".png"
-    //translateToCenterAnchor: false
+    translateToCenterAnchor: false
   }
 
   DebugVisual {
-    x: -sprite.width/2
-    y: -sprite.height/2
-    width: sprite.width
-    height: sprite.height
+    x: collider.x
+    y: collider.y
+    width: collider.width
+    height: collider.height
   }
 
   Timer {

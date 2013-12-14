@@ -99,7 +99,7 @@ EntityBase {
     }
   }
 
-  MoveToPointHelper {
+/*  MoveToPointHelper {
     id: moveToPointHelper
     // the entity to move towards
     targetObject: realTarget
@@ -132,7 +132,7 @@ EntityBase {
 
     // this avoids over-rotating, so rotating further than allowed
     maxPropertyValueDifference: moveToPointHelper.absoluteRotationDifference
-  }
+  }*/
 
 
   CircleCollider {

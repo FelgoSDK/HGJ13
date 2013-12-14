@@ -22,6 +22,16 @@ GravityEntity {
     anchors.centerIn: parent
     body.bullet: true
     body.fixedRotation: true
+
+    fixture.onBeginContact: {
+      var fixture = other;
+      var body = fixture.parent;
+      var component = body.parent;
+      var collidedEntity = component.owningEntity;
+      var collidedEntityType = collidedEntity.entityType;
+      scene.removeEntityFromLogic(collidedEntity);
+      collidedEntity.removeEntity();
+    }
   }
 
   SingleSpriteFromFile {

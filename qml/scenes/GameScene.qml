@@ -102,6 +102,10 @@ SceneBase {
     sceneLoader.activateGameOverScene()
   }
 
+  function removeEntityFromLogic(entity) {
+    LevelLogic.removeObject(entity.id);
+  }
+
   Timer {
     id: gameTime
     interval: 50

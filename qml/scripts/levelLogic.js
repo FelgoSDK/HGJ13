@@ -1,6 +1,6 @@
 var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
-var objects = new Array();
+var objects = {};
 var gravityWells = [];
 var impulse = Qt.point(0,0);
 var objectSettings =  {"x": 0,
@@ -33,13 +33,17 @@ function generateRandomValueBetween(minimum, maximum) {
 }
 
 function addObject(entityId) {
-  objects.push(entityManager.getEntityById(entityId));
+  objects[entityId] = entityManager.getEntityById(entityId);
+}
+
+function removeObject(entityId) {
+  delete objects[entityId];
 }
 
 function applyGravity() {
   for(var i = 0; i < gravityWells.length; ++i) {
     var gravityPosition = gravityWells[i].getPosition();
-    for(var j = 0; j < objects.length; ++j) {
+    for(var j in objects) {
       var object = objects[j];
 
       if(object.getPosition) {

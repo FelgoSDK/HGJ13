@@ -10,6 +10,12 @@ EntityBase {
 
   entityType: "player"
   entityId: "r"
+  property variant weaponPosition: Qt.point(20, 0)
+  property real weaponAngle: 0
+  property real minAngle: 0
+  property real maxAngle: 0
+  property real speed: 1
+  property bool isShooting: false
 
   property variant realTarget
 
@@ -18,6 +24,8 @@ EntityBase {
   property real frameRate: 7
 
   property alias inputActionsToKeyCode: twoAxisController.inputActionsToKeyCode
+
+  property alias collisionGroup: collider.groupIndex
 
   // gets accessed to insert the input when touching the HUDController
   property alias controller: twoAxisController
@@ -109,19 +117,36 @@ EntityBase {
   }
 
   // moves the player depending on the twoAxisController
-    Timer {
-      id: updateTimer
-      interval: 20
-      running: true
-      repeat: true
-      onTriggered: {
-        var xAxis = twoAxisController.xAxis
-        //camera.x+=xAxis*10
-        var yAxis = twoAxisController.yAxis
-        //camera.y-=yAxis*10
-         console.debug("Data",twoAxisController.xAxis,twoAxisController.yAxis)
+  Timer {
+    id: updateTimer
+    interval: 20
+    running: true
+    repeat: true
+    onTriggered: {
+      var angle = parent.weaponAngle + twoAxisController.xAxis * parent.speed
+      parent.weaponAngle = (angle < parent.minAngle) ? parent.minAngle : ((angle > parent.maxAngle) ? parent.maxAngle : angle);
+      var isShooting = parent.isShooting = (twoAxisController.yAxis > 0)
+
+      if(isShooting && !shootingTimer.running) {
+        scene.spawnRocket(parent.entityId);
+        shootingTimer.start()
       }
     }
+  }
+
+  Timer {
+    id: shootingTimer
+    interval: 1000
+    running: false
+    repeat: true
+    onTriggered: {
+      if(parent.isShooting) {
+        scene.spawnRocket(parent.entityId);
+      } else {
+        shootingTimer.stop()
+      }
+    }
+  }
 
   /*  MoveToPointHelper {
     id: moveToPointHelper
@@ -168,6 +193,7 @@ EntityBase {
     //collisionTestingOnlyMode: true
     //sensor: true
     categories: settingsManager.playerColliderGroup
+    groupIndex: settingsManager.neutralGroup
 
     fixedRotation: true
 

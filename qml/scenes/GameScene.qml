@@ -95,8 +95,8 @@ SceneBase {
     gameIsRunning = true
     level.reset()
     gameTime.start()
-    LevelLogic.setGravityWells(level.getGravityWells());
-    LevelLogic.createRockets(level.getTarget());
+    LevelLogic.setGravityWells(level.getGravityWells())
+    LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
   }
 
   function stopGame() {
@@ -108,8 +108,12 @@ SceneBase {
     sceneLoader.activateGameOverScene()
   }
 
+  function spawnRocket(playerId) {
+    LevelLogic.spawnRocket(playerId)
+  }
+
   function removeEntityFromLogic(entity) {
-    LevelLogic.removeObject(entity.id);
+    LevelLogic.removeObject(entity.id)
   }
 
   Timer {
@@ -118,7 +122,7 @@ SceneBase {
     repeat: true
     onTriggered: {
       level.update()
-      LevelLogic.applyGravity();
+      LevelLogic.applyGravity()
 
       if(debugTextForRockets.visible) {
         debugTextForRockets.text = LevelLogic.objectsCount

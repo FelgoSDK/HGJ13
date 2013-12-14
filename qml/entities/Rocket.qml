@@ -14,6 +14,7 @@ GravityEntity {
   property variant target: undefined
   property int speed: 7
   property real curveFactor: 0.05
+  property alias collisionGroup: collider.groupIndex
 
   BoxCollider {
     id: collider
@@ -22,6 +23,7 @@ GravityEntity {
     anchors.centerIn: parent
     body.bullet: true
     body.fixedRotation: true
+    groupIndex: settingsManager.neutralGroup
 
     fixture.onBeginContact: {
       var fixture = other;
@@ -64,7 +66,7 @@ GravityEntity {
 
   function rmvEntity() {
     scene.removeEntityFromLogic(rocket)
-    collidedEntity.removeEntity()
+    rocket.removeEntity()
   }
 
   SingleSpriteFromFile {
@@ -103,6 +105,11 @@ GravityEntity {
         rocket.rotation = heading * 180 / Math.PI
         var forward = Qt.point(rocket.speed * Math.cos(heading), rocket.speed * Math.sin(heading));
         collider.body.applyLinearImpulse(forward,getPosition());
+      } else {
+        var angle = rocket.rotation * Math.PI / 180;
+        var forward2 = Qt.point(rocket.speed * Math.cos(angle), rocket.speed * Math.sin(angle));
+        console.debug(angle, rocket.rotation, forward2.x, forward2.y);
+        collider.body.applyLinearImpulse(forward2,getPosition());
       }
     }
   }

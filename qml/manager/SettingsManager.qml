@@ -21,6 +21,10 @@ Storage {
   property int playerColliderGroup: Box.Category3
   property int obstacleColliderGroup: Box.Category4
 
+  property int neutralGroup: 0
+  property int player1Group: -1
+  property int player2Group: -2
+
   onSoundChanged: {
     storage.setValue("sound", sound)
   }

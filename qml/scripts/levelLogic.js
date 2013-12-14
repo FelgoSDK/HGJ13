@@ -2,15 +2,33 @@ var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
 var objects = {};
 var objectsCount = 0;
+var players = {};
 var gravityWells = [];
 var impulse = Qt.point(0,0);
 var objectSettings =  {"x": 0,
   "y": 0,
   "rotation": 60,
-  "target": null
+  "target": null,
+  "collisionGroup": 0
 }
 
 function init() {
+}
+
+function setPlayers(player1, player2) {
+  players[player1.entityId] = player1;
+  players[player2.entityId] = player2;
+}
+
+function spawnRocket(playerId) {
+  var player = players[playerId];
+  objectSettings.x = player.x + player.weaponPosition.x;
+  objectSettings.y = player.y + player.weaponPosition.y;
+  objectSettings.collisionGroup = player.collisionGroup;
+  objectSettings.target = null;
+  objectSettings.rotation = player.weaponAngle;
+  var entityId = entityManager.createEntityFromUrlWithProperties(rocketUrl, objectSettings);
+  addObject(entityId);
 }
 
 function createRockets(target) {
@@ -58,7 +76,7 @@ function applyGravity() {
 
         impulse.x = 10*Math.cos(angle);
         impulse.y = 10*Math.sin(angle);
-        object.applyGravityImpulse(impulse);
+       // object.applyGravityImpulse(impulse);
       }
     }
   }

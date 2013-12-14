@@ -51,9 +51,17 @@ Item {
     var centerY = height*0.5
     character.x = playerDragger.x = 0
     character.y = playerDragger.y = centerY
+    character.weaponPosition = Qt.point(20, 0)
+    character.weaponAngle = 0;
+    character.minAngle = -45;
+    character.maxAngle = 45;
 
     character2.x = playerDragger2.x = width
     character2.y = playerDragger2.y = centerY
+    character2.weaponPosition = Qt.point(-20, 0)
+    character2.weaponAngle = 180;
+    character2.minAngle = 135;
+    character2.maxAngle = 225;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0
@@ -71,6 +79,14 @@ Item {
     return [character.controller, character2.controller]
   }
 
+  function getPlayer1() {
+    return character
+  }
+
+  function getPlayer2() {
+    return character2
+  }
+
   PlayerDragger {
     id: playerDragger
     onMoveNow: character.moveNow()
@@ -79,8 +95,9 @@ Item {
 
   PlayerFollower {
     id: character
-    entityId: "r"
+    entityId: "p1"
     realTarget: playerDragger
+    collisionGroup: settingsManager.player1Group
 
     inputActionsToKeyCode: {
         "up": Qt.Key_Up,
@@ -98,8 +115,9 @@ Item {
 
   PlayerFollower {
     id: character2
-    entityId: "g"
+    entityId: "p2"
     realTarget: playerDragger2
+    collisionGroup: settingsManager.player2Group
 
     inputActionsToKeyCode: {
         "up": Qt.Key_W,

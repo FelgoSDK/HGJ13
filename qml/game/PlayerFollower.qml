@@ -159,10 +159,6 @@ EntityBase {
     }
   }
 
-  function applyGravity(forward) {
-    collider.applyLinearImpulse(forward,collider.body.getWorldCenter())
-  }
-
   DebugVisual {
     x: -sprite.width/2
     y: -sprite.height/2

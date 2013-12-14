@@ -88,6 +88,7 @@ SceneBase {
     gameIsRunning = true
     level.reset()
     gameTime.start()
+    LevelLogic.setGravityWells(level.getGravityWells());
     LevelLogic.createRockets(level.getTarget());
   }
 
@@ -107,6 +108,7 @@ SceneBase {
     repeat: true
     onTriggered: {
       level.update()
+      LevelLogic.applyGravity();
     }
 
   }

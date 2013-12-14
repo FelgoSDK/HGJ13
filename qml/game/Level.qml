@@ -42,7 +42,6 @@ Item {
   }
 
   function update() {
-    character.applyGravity(Qt.point(1,0));
   }
 
   function reset() {
@@ -62,6 +61,10 @@ Item {
 
   function getTarget() {
     return character2;
+  }
+
+  function getGravityWells() {
+    return [earth];
   }
 
   PlayerDragger {

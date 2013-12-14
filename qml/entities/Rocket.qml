@@ -1,9 +1,8 @@
 import QtQuick 1.1
-import Box2D 1.0
 import VPlay 1.0
 import "../game"
 
-EntityBase {
+GravityEntity {
   id: rocket
   entityType: "rocket"
   poolingEnabled: true
@@ -11,11 +10,11 @@ EntityBase {
   height: sprite.height
 
   property variant target: undefined
-  property int speed: 50
+  property int speed: 7
   property real curveFactor: 0.05
 
   BoxCollider {
-    id: boxCollider
+    id: collider
     width: sprite.width
     height: sprite.height
     anchors.centerIn: parent
@@ -28,12 +27,6 @@ EntityBase {
     filename: "../img/images-sd.json"
     source: "rocket.png"
     translateToCenterAnchor: false
-  }
-
-  DebugVisual {
-    width: sprite.width
-    height: sprite.height
-    opacity: 0.5
   }
 
   Timer {
@@ -56,8 +49,8 @@ EntityBase {
         var heading = (1 - rocket.curveFactor) * oldHeading + rocket.curveFactor * TheAngle;
 
         rocket.rotation = heading * 180 / Math.PI
-        boxCollider.body.linearVelocity.x = rocket.speed * Math.cos(heading)
-        boxCollider.body.linearVelocity.y = rocket.speed * Math.sin(heading)
+        var forward = Qt.point(rocket.speed * Math.cos(heading), rocket.speed * Math.sin(heading));
+        collider.body.applyLinearImpulse(forward,getPosition());
       }
     }
   }

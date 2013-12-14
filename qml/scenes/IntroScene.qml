@@ -1,28 +1,14 @@
 import VPlay 1.0
 import QtQuick 1.1
+import "../menu"
 
 SceneBase {
   id: scene
 
-
-  SingleSpriteFromFile {
-
-    filename: "../img/images-sd.json"
-    source: "cheese.png"
-    translateToCenterAnchor: false
-    anchors.centerIn: scene.gameWindowAnchorItem
+  Background {
+    anchors.centerIn: scene
+    source: "../img/logo-sd.png"
   }
-
-  /*Video {
-    id: video
-    anchors.fill: scene.gameWindowAnchorItem
-    autoPlay: true
-    source: "../videos/intro.mp4"
-
-    onEnded: {
-      sceneLoader.activateMainMenuScene()
-    }
-  }*/
 
   Timer {
     id: changeToNextSceneTimer

@@ -171,7 +171,6 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>cheese.png</filename>
             <filename>debugrect.png</filename>
             <filename>earth.png</filename>
             <filename>comet.png</filename>

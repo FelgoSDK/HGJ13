@@ -31,6 +31,19 @@ EntityBase {
   // gets accessed to insert the input when touching the HUDController
   property alias controller: twoAxisController
 
+  EditableComponent {
+    editableType: "Game Settings"
+    properties: {
+      "Player": {
+        //"weaponAngle":               {"min": 0, "max": 50, "label": "Speed"},
+        //"minAngle":           {"min": 0, "max": 1, "stepsize": 0.01, "label": "Curve"},
+        //"maxAngle":           {"min": 0, "max": 1, "stepsize": 0.01, "label": "Curve"},
+        "speed":           {"min": 0, "max": 100, "label": "Speed"},
+        "attackCooldown":           {"min": 100, "max": 2000, "stepsize": 100, "label": "Cooldown"},
+      }
+    }
+  }
+
   SpriteSequenceFromFile {
     id: sprite
     translateToCenterAnchor: true
@@ -149,7 +162,7 @@ EntityBase {
     }
   }
 
-  /*  MoveToPointHelper {
+  MoveToPointHelper {
     id: moveToPointHelper
     // the entity to move towards
     targetObject: realTarget
@@ -182,7 +195,7 @@ EntityBase {
 
     // this avoids over-rotating, so rotating further than allowed
     maxPropertyValueDifference: moveToPointHelper.absoluteRotationDifference
-  }*/
+  }
 
 
   CircleCollider {

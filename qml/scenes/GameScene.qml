@@ -7,6 +7,7 @@ SceneBase {
   id: scene
 
   controllerOfScene: level.getPlayerControllers()
+  property alias itemEditor: itemEditor
   // debug scale to see whole scene and colliders
   //scale: 0.5
 
@@ -60,6 +61,13 @@ SceneBase {
       settingsManager.debugVisualsEnabled^=1
     }
     visible: developerBuild
+  }
+  ItemEditor {
+    id: itemEditor
+    width: parent.width/4
+    height: parent.height
+    opacity: 0.4
+    visible: settingsManager.debugVisualsEnabled && developerBuild
   }
 
   property bool gameIsRunning: false

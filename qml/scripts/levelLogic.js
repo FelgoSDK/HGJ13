@@ -10,10 +10,9 @@ var objectSettings =  {"x": 0,
   "rotation": 60,
   "target": null,
   "collisionGroup": 0,
-  "speed": 7,
-  "curveFactor": 0.5
+  //"speed": 7,
+  //"curveFactor": 0.5
 }
-var gravityForce = 5000000;
 
 function init() {
 }
@@ -78,7 +77,7 @@ function applyGravity() {
         var distance = dx*dx + dy*dy;
         var angle = Math.atan2(dy, dx);
 
-        var gravity = gravityForce / distance;
+        var gravity = well.gravityForce / distance;
         direction.x = gravity * Math.cos(angle);
         direction.y = gravity * Math.sin(angle);
         object.applyGravity(direction);

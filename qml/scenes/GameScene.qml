@@ -32,11 +32,12 @@ SceneBase {
   EntityManager {
     id: entityManager
     // forward container allways to container of scene
-    entityContainer: level// entityContainerOfScene
+    entityContainer: entityContainerOfScene
     // forward dynamic entity list e.g. used for level editor
     //dynamicCreationEntityList: activeScene.dynamicCreationEntityList
   }
-  //entityContainerOfScene: level
+
+  entityContainerOfScene: level
 
   Level {
     id: level

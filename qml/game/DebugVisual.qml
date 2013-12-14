@@ -3,7 +3,7 @@ import QtQuick 1.1
 
 Rectangle {
   opacity: 0.5
-  visible: settingsManager.debugVisualsEnabled
+  visible: settingsManager.debugVisualsEnabled && developerBuild
 }
 /*
 SingleSpriteFromFile {

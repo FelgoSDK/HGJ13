@@ -31,6 +31,11 @@ GameWindow {
   // Custom font loading of ttf fonts
   FontLoader {
     id: fontHUD
+    source: "fonts/04B_03__.ttf"
+  }
+
+  FontLoader {
+    id: fontLetterHUD
     source: "fonts/propaganda.ttf"
   }
 

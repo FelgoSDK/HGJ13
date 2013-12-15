@@ -12,7 +12,7 @@ EntityBase {
 
   entityType: "player"
   entityId: "1"
-  property variant weaponPosition: Qt.point(-tower.width/2, -tower.height/2)
+  property variant weaponPosition: Qt.point(0,0)//-tower.width/2, -tower.height/2)
   property real weaponAngle: 0
   property real minAngle: 0
   property real maxAngle: 0
@@ -30,6 +30,8 @@ EntityBase {
   property alias inputActionsToKeyCode: twoAxisController.inputActionsToKeyCode
 
   property alias collisionGroup: collider.groupIndex
+
+  property int swayTime: Math.random() * 10
 
   // gets accessed to insert the input when touching the HUDController
   property alias controller: twoAxisController
@@ -86,6 +88,11 @@ EntityBase {
         releaseTheRockets()
         shootingTimer.start()
       }
+
+      ++swayTime;
+      parent.y += Math.cos(swayTime / 50) / 3;
+      parent.x += Math.cos(swayTime / 25) / 6;
+      parent.rotation += Math.cos(swayTime / 15) / 5;
     }
   }
 
@@ -99,6 +106,7 @@ EntityBase {
         releaseTheRockets()
       } else {
         shootingTimer.stop()
+        tower.visible = true
       }
     }
   }
@@ -106,6 +114,7 @@ EntityBase {
   function releaseTheRockets() {
     audioManager.play(audioManager.idSHOOT)
     scene.spawnRocket(followerEntity.entityId)
+    tower.visible = false
   }
 
   BoxCollider {
@@ -237,13 +246,5 @@ EntityBase {
     onReleased: {
       touchShootEnabled = false
     }
-  }
-
-  Rectangle {
-    anchors.centerIn: collider
-    width: 1
-    height: 1
-    property int vertexZ:10
-    color: "blue"
   }
 }

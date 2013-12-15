@@ -11,7 +11,6 @@ GravityEntity {
 
   variationType: "1"
 
-  property variant target: undefined
   property int speed: 7
   property real curveFactor: 0.05
   property alias collisionGroup: collider.groupIndex
@@ -86,7 +85,9 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: "rocket"+variationType+".png"
-    translateToCenterAnchor: false
+    x: 0
+    y: 0
+    //translateToCenterAnchor: false
   }
 
   DebugVisual {
@@ -101,37 +102,34 @@ GravityEntity {
     running: true
     repeat: true
     onTriggered: {
-      if(target) {
-        var oldHeading = rocket.rotation * Math.PI / 180;
+     var position  = getPosition()
+     /* if(oldX && oldY) {
+        var dx = position.x - oldX;
+        var dy = position.y - oldY;
+        rocket.rotation = (1 - rocket.curveFactor) * rocket.rotation + rocket.curveFactor * Math.atan2(dy, dx) * 180 / Math.PI;
+      }*/
 
-        var atanY = target.y + (target.height / 2) - rocket.y;
-        var atanX = target.x + (target.width / 2) - rocket.x;
-
-        var TheAngle = Math.atan2(atanY, atanX);
-        if(Math.abs(TheAngle-oldHeading) > Math.PI) {
-          var sign = TheAngle?TheAngle<0?-1:1:0
-          TheAngle = TheAngle - sign*Math.PI*2;
-        }
-
-        var heading = (1 - rocket.curveFactor) * oldHeading + rocket.curveFactor * TheAngle;
-
-        rocket.rotation = heading * 180 / Math.PI
-        var forward = Qt.point(rocket.speed * Math.cos(heading), rocket.speed * Math.sin(heading));
-        collider.body.applyLinearImpulse(forward,getPosition());
-      } else {
-        var position  = getPosition()
-        if(oldX && oldY) {
-          var dx = position.x - oldX;
-          var dy = position.y - oldY;
-          rocket.rotation = (1 - rocket.curveFactor) * rocket.rotation + rocket.curveFactor * Math.atan2(dy, dx) * 180 / Math.PI;
-        }
-
-        var angle = rocket.rotation * Math.PI / 180;
-        var forward2 = Qt.point(rocket.speed * Math.cos(angle), rocket.speed * Math.sin(angle));
-        collider.body.applyLinearImpulse(forward2, position);
-        oldX = position.x;
-        oldY = position.y;
-      }
+      var angle = rocket.rotation * Math.PI / 180;
+      var forward2 = Qt.point(rocket.speed * Math.cos(angle), rocket.speed * Math.sin(angle));
+      collider.body.applyLinearImpulse(forward2, position);
+     /* oldX = position.x;
+      oldY = position.y;*/
     }
   }
+
+/*  Rectangle {
+    anchors.centerIn: collider
+    width: 1
+    height: 1
+    property int vertexZ:10
+    color: "blue"
+  }
+
+  Rectangle {
+    anchors.centerIn: collider
+    width: 5
+    height: 5
+    property int vertexZ:10
+    color: "yellow"
+  }*/
 }

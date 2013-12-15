@@ -16,7 +16,7 @@ var objectSettings = {
   "rotation": 60,
   "target": null,
   "collisionGroup": 0,
-  "variationType": 1,
+  "variationType": 1
 }
 var satelliteSettings =  {
   "origin" : Qt.point(0, 0),
@@ -109,11 +109,22 @@ function spawnComet() {
 
 function spawnRocket(playerId) {
   var player = players[playerId];
-  objectSettings.x = player.x+player.width/2 + player.weaponPosition.x;
-  objectSettings.y = player.y+player.height/2 + player.weaponPosition.y;
+  if(playerId==="2") {
+    objectSettings.x = player.x+player.width + player.weaponPosition.x;
+    objectSettings.y = player.y+player.height + player.weaponPosition.y;
+  } else {
+    objectSettings.x = player.x+player.width/2 + player.weaponPosition.x;
+    objectSettings.y = player.y+player.height/2 + player.weaponPosition.y;
+  }
+
   objectSettings.collisionGroup = player.collisionGroup;
   objectSettings.target = null;
-  objectSettings.rotation = player.weaponAngle;
+  if(playerId==="2") {
+    objectSettings.rotation = player.weaponAngle + 180;
+  } else {
+    objectSettings.rotation = player.weaponAngle;
+  }
+
   objectSettings.variationType = playerId
   var entityId = entityManager.createEntityFromUrlWithProperties(rocketUrl, objectSettings);
   addObject(entityId);

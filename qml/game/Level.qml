@@ -55,8 +55,8 @@ Item {
     character.maxAngle = 60;
 
     character2.weaponAngle = 180;
-    character2.minAngle = -60;//120;
-    character2.maxAngle = 60;//240;
+    character2.minAngle = -60;
+    character2.maxAngle = 60;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0
@@ -105,6 +105,7 @@ Item {
   Shield {
     id: shield1
     anchors.centerIn: character
+    collisionGroup: character.collisionGroup
   }
 
   Player {
@@ -129,6 +130,7 @@ Item {
     id: shield2
     rotation: Math.PI
     anchors.centerIn: character2
+    collisionGroup: character2.collisionGroup
     variationType: "2"
   }
 

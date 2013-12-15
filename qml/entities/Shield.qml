@@ -11,6 +11,8 @@ GravityEntity {
   width: collider.width
   height: collider.height
 
+  property alias collisionGroup: collider.groupIndex
+
   property int radius: 42
   property int hitpoints: 5
   property real angle: Math.PI / 6

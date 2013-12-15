@@ -40,7 +40,8 @@ GravityEntity {
     anchors.centerIn: parent
     bodyType: Body.Kinematic
     groupIndex: settingsManager.neutralGroup
-    colliderType: settingsManager.obstacleColliderGroup
+    categories: settingsManager.satelliteColliderGroup
+    collidesWith: settingsManager.rocketColliderGroup
 
     fixture.onBeginContact: {
       var fixture = other;
@@ -48,10 +49,8 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-      if(collidedEntityType === "rocket") {
-        if(--parent.hitpoints === 0) {
-          destroySatellite()
-        }
+      if(--parent.hitpoints === 0) {
+        destroySatellite()
       }
     }
   }

@@ -17,9 +17,13 @@ Storage {
   property bool debugVisualsEnabled: false
 
   property int borderRegionColliderGroup: Box.Category1
-  property int worldColliderGroup: Box.Category2
-  property int playerColliderGroup: Box.Category3
-  property int obstacleColliderGroup: Box.Category4
+  property int earthColliderGroup: Box.Category2
+  property int moonColliderGroup: Box.Category3
+  property int playerColliderGroup: Box.Category4
+  property int satelliteColliderGroup: Box.Category5
+  property int cometColliderGroup: Box.Category6
+  property int shieldColliderGroup: Box.Category7
+  property int rocketColliderGroup: Box.Category8
 
   property int neutralGroup: 0
   property int player1Group: -1

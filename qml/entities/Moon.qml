@@ -38,7 +38,8 @@ GravityEntity {
     anchors.centerIn: parent
     bodyType: Body.Kinematic
     groupIndex: settingsManager.neutralGroup
-    colliderType: settingsManager.obstacleColliderGroup
+    categories: settingsManager.moonColliderGroup
+    collidesWith: settingsManager.cometColliderGroup | settingsManager.rocketColliderGroup
 
     fixture.onBeginContact: {
       var fixture = other;

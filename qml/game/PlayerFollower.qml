@@ -110,8 +110,9 @@ EntityBase {
 
     collisionTestingOnlyMode: true
     bodyType: Body.Kinematic
-    categories: settingsManager.playerColliderGroup
     groupIndex: settingsManager.neutralGroup
+    categories: settingsManager.playerColliderGroup
+    collidesWith: settingsManager.rocketColliderGroup
 
     fixedRotation: true
 
@@ -122,6 +123,7 @@ EntityBase {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
 
+      //apply player damage here
     }
   }
 

@@ -22,7 +22,8 @@ GravityEntity {
     anchors.centerIn: parent
     bodyType: Body.Dynamic
     groupIndex: settingsManager.neutralGroup
-    colliderType: settingsManager.obstacleColliderGroup
+    categories: settingsManager.cometColliderGroup
+    collidesWith: settingsManager.earthColliderGroup | settingsManager.moonColliderGroup | settingsManager.rocketColliderGroup | settingsManager.borderRegionColliderGroup
     linearDamping: 0
 
     fixture.onBeginContact: {

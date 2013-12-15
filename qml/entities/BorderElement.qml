@@ -20,7 +20,9 @@ EntityBase {
 
 
     collisionTestingOnlyMode: true
+    groupIndex: settingsManager.neutralGroup
     categories: settingsManager.borderRegionColliderGroup
+    collidesWith: settingsManager.cometColliderGroup | settingsManager.rocketColliderGroup
 
     fixedRotation: true
 

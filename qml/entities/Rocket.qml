@@ -36,6 +36,8 @@ GravityEntity {
     bullet: true
     fixedRotation: true
     groupIndex: settingsManager.neutralGroup
+    categories: settingsManager.rocketColliderGroup
+    collidesWith: settingsManager.earthColliderGroup | settingsManager.moonColliderGroup | settingsManager.playerColliderGroup | settingsManager.satelliteColliderGroup | settingsManager.cometColliderGroup | settingsManager.shieldColliderGroup | settingsManager.rocketColliderGroup | settingsManager.borderRegionColliderGroup
 
     fixture.onBeginContact: {
       var fixture = other;
@@ -43,10 +45,8 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-      if(collidedEntityType === "rocket" || collidedEntityType === "obstacle") {
-        audioManager.play(audioManager.idEXPOLOSION)
-        destroyRocket()
-      }
+      audioManager.play(audioManager.idEXPOLOSION)
+      destroyRocket()
     }
   }
 

@@ -15,6 +15,7 @@ Item {
 
   property int borderOffset: 140
   property int satelliteCount : 0
+  property int cometCount : 0
 
   BorderElement {
     x: scene.gameWindowAnchorItem.x-borderOffset

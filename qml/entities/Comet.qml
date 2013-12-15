@@ -3,45 +3,28 @@ import VPlay 1.0
 import "../game"
 
 GravityEntity {
-  id: satellite
+  id: comet
   entityType: "obstacle"
   poolingEnabled: false
   width: sprite.width
   height: sprite.height
-  scale: 0
 
-  variationType: "satellite"
+  variationType: "comet"
 
   property variant target: undefined
-  property real speed: 0.02
-  property int distance: 100
-  property real angle: 0
-  property variant origin: Qt.point(0, 0)
   property alias collisionGroup: collider.groupIndex
   property int hitpoints: 1
-  property int currentDistance: 0
-  property int index: 0
-
- /* EditableComponent {
-    editableType: "Satellite"
-    properties: {
-      "Obstacle": {
-        "speed":               {"min": 0.005, "max": 0.1, "stepsize": 0.005, "label": "Speed"},
-        "distance":            {"min": 50, "max": 160, "stepsize": 1, "label": "Distance"},
-        "hitpoints":           {"min": 0, "max": 50, "label": "Hitpoints"},
-      }
-    }
-  }*/
 
   BoxCollider {
     id: collider
     width: sprite.width
     height: sprite.height
     anchors.centerIn: parent
-    bodyType: Body.Kinematic
+    bodyType: Body.Dynamic
     groupIndex: settingsManager.neutralGroup
-    categories: settingsManager.satelliteColliderGroup
-    collidesWith: settingsManager.rocketColliderGroup
+    categories: settingsManager.cometColliderGroup
+    collidesWith: settingsManager.earthColliderGroup | settingsManager.moonColliderGroup | settingsManager.rocketColliderGroup | settingsManager.borderRegionColliderGroup
+    linearDamping: 0
 
     fixture.onBeginContact: {
       var fixture = other;
@@ -50,7 +33,7 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(--parent.hitpoints === 0) {
-        destroySatellite()
+        destroyComet()
       }
     }
   }
@@ -76,15 +59,19 @@ GravityEntity {
     }
   }
 
-  function destroySatellite() {
+  function destroyComet() {
     collider.active = false
     sprite.visible = false
     flyer.start()
   }
 
   function rmvEntity() {
-    scene.removeEntityFromLogic(satellite)
-    satellite.removeEntity()
+    scene.removeEntityFromLogic(comet)
+    comet.removeEntity()
+  }
+
+  function applyImpulse(direction) {
+    collider.body.applyLinearImpulse(direction, getPosition())
   }
 
   SingleSpriteFromFile {
@@ -106,7 +93,7 @@ GravityEntity {
     running: true
     repeat: true
     onTriggered: {
-      var distance = parent.distance;
+     /* var distance = parent.distance;
       var currentDistance = parent.currentDistance;
       if(currentDistance < parent.distance) {
         currentDistance = parent.currentDistance = Math.min(currentDistance + ~~((distance - currentDistance) / 50) + 1, distance)
@@ -116,7 +103,7 @@ GravityEntity {
       parent.angle += parent.speed
       parent.x = parent.origin.x + Math.cos(parent.angle) * currentDistance
       parent.y = parent.origin.y + Math.sin(parent.angle) * currentDistance
-      parent.rotation = parent.angle * 180 / Math.PI - 90
+      parent.rotation = parent.angle * 180 / Math.PI - 90*/
     }
   }
 }

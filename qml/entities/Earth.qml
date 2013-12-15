@@ -47,9 +47,11 @@ GravityEntity {
 
     collisionTestingOnlyMode: true
     sensor: false
-    categories: settingsManager.worldColliderGroup
+    groupIndex: settingsManager.neutralGroup
+    categories: settingsManager.earthColliderGroup
+    collidesWith: settingsManager.cometColliderGroup | settingsManager.rocketColliderGroup
     fixedRotation: true
-    fixture.onBeginContact: {
+ /*   fixture.onBeginContact: {
       var fixture = other;
       var body = fixture.parent;
       var component = body.parent;
@@ -58,6 +60,6 @@ GravityEntity {
       if(collidedEntityType === "rocket") {
         collidedEntity.destroyRocket()
       }
-    }
+    }*/
   }
 }

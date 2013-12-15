@@ -9,6 +9,7 @@ SceneBase {
   controllerOfScene: level.getPlayerControllers()
   property alias itemEditor: itemEditor
   signal spawnSatellite
+  signal spawnComet
   // debug scale to see whole scene and colliders
   //scale: 0.5
 
@@ -117,11 +118,15 @@ SceneBase {
   }
 
   function removeEntityFromLogic(entity) {
+    if(entity.variationType === "comet") {
+      level.cometCount--;
+    }
+
     if(entity.variationType === "satellite") {
       level.satelliteCount--;
       LevelLogic.removeSatellite(entity.index);
     } else {
-      LevelLogic.removeObject(entity.id)
+      LevelLogic.removeObject(entity.entityId)
     }
   }
 
@@ -135,6 +140,10 @@ SceneBase {
 
       if(level.satelliteCount < settingsManager.satelliteCount && !satelliteSpawnTime.running) {
         satelliteSpawnTime.start();
+      }
+
+      if(level.cometCount < settingsManager.cometCount && !cometSpawnTime.running) {
+        cometSpawnTime.start();
       }
     }
 
@@ -150,8 +159,24 @@ SceneBase {
     }
   }
 
+
+  Timer {
+    id: cometSpawnTime
+    interval: 5000
+    repeat: false
+    running: false
+    onTriggered: {
+      scene.spawnComet();
+    }
+  }
+
   onSpawnSatellite: {
     LevelLogic.spawnSatellite();
     level.satelliteCount++;
+  }
+
+  onSpawnComet: {
+    LevelLogic.spawnComet();
+    level.cometCount++;
   }
 }

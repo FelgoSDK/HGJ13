@@ -137,9 +137,19 @@ Item {
 
   Earth {
     id: earth
+    onHitByRocket: {
+      cityMapReferencGenerator.enterHitNewCity(rocketPlayerID)
+    }
   }
 
   Moon {
     id: moon
+  }
+  CityMap {
+    id: cityMapReferencGenerator
+    anchors.top: parent.top
+    anchors.topMargin: 10
+    anchors.horizontalCenter: parent.horizontalCenter
+    property int vertexZ: 5
   }
 }

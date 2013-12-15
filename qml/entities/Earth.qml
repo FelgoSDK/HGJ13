@@ -13,6 +13,7 @@ GravityEntity {
   //height: sprite.height
 
   property int radius: sprite.width*0.45
+  signal hitByRocket(int rocketPlayerID)
 
   property int gravityForce: 7500000
 
@@ -39,6 +40,8 @@ GravityEntity {
     height: sprite.height
   }
 
+
+
   CircleCollider {
     id: collider
     radius: parent.radius
@@ -51,15 +54,15 @@ GravityEntity {
     categories: settingsManager.earthColliderGroup
     collidesWith: settingsManager.cometColliderGroup | settingsManager.rocketColliderGroup
     fixedRotation: true
- /*   fixture.onBeginContact: {
+    fixture.onBeginContact: {
       var fixture = other;
       var body = fixture.parent;
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
-        collidedEntity.destroyRocket()
+        parent.hitByRocket(collidedEntity.variationType)
       }
-    }*/
+    }
   }
 }

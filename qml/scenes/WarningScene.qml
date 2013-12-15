@@ -36,7 +36,6 @@ SceneBase {
 
   Component.onCompleted: {
     changeToNextSceneTimer.start()
-    randomColorTimer.start()
   }
 
   MouseArea {

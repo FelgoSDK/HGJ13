@@ -1,14 +1,15 @@
 import VPlay 1.0
 import QtQuick 1.1
+import "../menu"
 
 SceneBase {
   id: scene
 
-  Text {
-    text: "Loading..."
+  TextButton {
+    blinkIntervall: 500
+    text: qsTr("Loading ...")+translation.language
     anchors.centerIn: scene.gameWindowAnchorItem
-    color: "white"
-    font.family: fontHUD.name
+    font: fontHUD
   }
 
   onOpacityChanged: {

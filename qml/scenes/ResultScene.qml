@@ -51,12 +51,6 @@ SceneBase {
         font.pixelSize: scene.textSize
       }
       Text {
-        text: settingsManager.rocket1+"x"
-        font.family: fontHUD.name
-        color: "white"
-        font.pixelSize: scene.textSize
-      }
-      Text {
         text: settingsManager.comet1+"x"
         font.family: fontHUD.name
         color: "white"
@@ -64,6 +58,12 @@ SceneBase {
       }
       Text {
         text: settingsManager.shield1+"x"
+        font.family: fontHUD.name
+        color: "white"
+        font.pixelSize: scene.textSize
+      }
+      Text {
+        text: (settingsManager.playerTwoDestroyed ? 1 : 0) +"x"
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
@@ -132,19 +132,19 @@ SceneBase {
         font.pixelSize: scene.textSize
       }
       Text {
-        text: settingsManager.rocket1*(+10)
+        text: settingsManager.comet1*(+10)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
       }
       Text {
-        text: settingsManager.comet1*(+20)
+        text: settingsManager.shield1*(+20)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
       }
       Text {
-        text: settingsManager.shield1*(+40)
+        text: (settingsManager.playerTwoDestroyed ? 1 : 0)*(+40)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
@@ -157,7 +157,7 @@ SceneBase {
     anchors.topMargin: 30
     anchors.right: resultRord.right
 
-    text: settingsManager.moon1*(-5)+settingsManager.satellite1*(-10)+settingsManager.city1*(-15)+settingsManager.rocket1*(+10)+settingsManager.comet1*(+20)+settingsManager.shield1*(+40)
+    text: settingsManager.moon1*(-5)+settingsManager.satellite1*(-10)+settingsManager.city1*(-15)+settingsManager.comet1*(+10)+settingsManager.shield1*(+20)+(settingsManager.playerTwoDestroyed ? 1 : 0)*(+40)
     
     font.family: fontHUD.name
     color: "white"
@@ -191,17 +191,18 @@ SceneBase {
         color: "white"
         font.pixelSize: scene.textSize
       }
-      Text {text: settingsManager.rocket2+"x"
-        font.family: fontHUD.name
-        color: "white"
-        font.pixelSize: scene.textSize
-      }
       Text {text: settingsManager.comet2+"x"
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
       }
       Text {text: settingsManager.shield2+"x"
+        font.family: fontHUD.name
+        color: "white"
+        font.pixelSize: scene.textSize
+      }
+      Text {
+        text: (settingsManager.playerOneDestroyed ? 1 : 0) +"x"
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
@@ -260,17 +261,17 @@ SceneBase {
         color: "white"
         font.pixelSize: scene.textSize
       }
-      Text {text: settingsManager.rocket2*(+10)
+      Text {text: settingsManager.comet2*(+10)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
       }
-      Text {text: settingsManager.comet2*(+20)
+      Text {text: settingsManager.shield2*(+20)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
       }
-      Text {text: settingsManager.shield2*(+40)
+      Text {text: (settingsManager.playerOneDestroyed ? 1 : 0) *(+40)
         font.family: fontHUD.name
         color: "white"
         font.pixelSize: scene.textSize
@@ -283,7 +284,7 @@ SceneBase {
     anchors.topMargin: 30
     anchors.right: resultRord2.right
 
-    text: settingsManager.moon2*(-5)+settingsManager.satellite2*(-10)+settingsManager.city2*(-15)+settingsManager.rocket2*(+10)+settingsManager.comet2*(+20)+settingsManager.shield2*(+40)
+    text: settingsManager.moon2*(-5)+settingsManager.satellite2*(-10)+settingsManager.city2*(-15)+settingsManager.comet2*(+10)+settingsManager.shield2*(+20)+(settingsManager.playerOneDestroyed ? 1 : 0) *(+40)
     
     font.family: fontHUD.name
     color: "white"

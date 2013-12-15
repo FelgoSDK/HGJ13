@@ -61,9 +61,9 @@ SceneBase {
     console.debug("comet2", settingsManager.comet2)
     console.debug("shield2", settingsManager.shield2)
 
-    if(!settingsManager.playerOneDestroyed && settingsManager.playerTwoDestroyed) {
+    if(settingsManager.balance1 > settingsManager.balance2) {
       winnerScreen.text = qsTr("Player 1 won!")+translation.language
-    } else if(settingsManager.playerOneDestroyed && !settingsManager.playerTwoDestroyed) {
+    } else if(settingsManager.balance1 < settingsManager.balance2) {
       winnerScreen.text = qsTr("Player 2 won!")+translation.language
     } else {
       winnerScreen.text = qsTr("Draw!")+translation.language

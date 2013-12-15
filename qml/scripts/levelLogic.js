@@ -1,6 +1,7 @@
 var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
 var satelliteUrl = Qt.resolvedUrl("../entities/Satellite.qml");
+var cometUrl = Qt.resolvedUrl("../entities/Comet.qml");
 var objects = {};
 var objectsCount = 0;
 var players = {};
@@ -24,6 +25,11 @@ var satelliteSettings =  {
   "distance": 0,
   "speed": 0,
   "index": 0
+}
+var cometSettings = {
+  "x": 0,
+  "y": 0,
+  "rotation": 0,
 }
 
 function init(orbits) {
@@ -65,6 +71,39 @@ function spawnSatellite() {
 
     entityManager.createEntityFromUrlWithProperties(satelliteUrl, satelliteSettings);
   }
+}
+
+function spawnComet() {
+  var x = Math.random() * 440 + 20;
+  var y = (Math.random() < 0.5) ? 400 : -80;
+
+  cometSettings.x = x;
+  cometSettings.y = y;
+  cometSettings.rotation = Math.random() * 360;
+
+  //console.debug(cometSettings.x, cometSettings.y, cometSettings.angle, cometSettings.speed)
+  var entityId = entityManager.createEntityFromUrlWithProperties(cometUrl, cometSettings);
+
+
+  var well = entityManager.getEntityById(earthId);
+  if(well) {
+    var center = well.getPosition();
+    var comet = entityManager.getEntityById(entityId);
+    var dx = center.x - x;
+    var dy = center.y - y;
+    var angle = Math.atan2(dy, dx);
+
+    var divergence = (Math.random() * 15 + 20) * Math.PI / 180;
+    if(Math.random() < 0.5) {
+      divergence *= -1;
+    }
+    angle += divergence;
+    var speed = Math.random() * 50 + (45 - divergence) * 4;
+    direction.x = Math.cos(angle) * speed;
+    direction.y = Math.sin(angle) * speed;
+    comet.applyImpulse(direction);
+  }
+  addObject(entityId);
 }
 
 function spawnRocket(playerId) {

@@ -27,6 +27,7 @@ Storage {
 
   property int satelliteCount: 4
   property variant satelliteOrbits: [45, 90, 135, 60, 105, 75]
+  property int cometCount: 4
 
   onSoundChanged: {
     storage.setValue("sound", sound)

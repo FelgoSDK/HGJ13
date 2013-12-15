@@ -117,6 +117,7 @@ GravityEntity {
       parent.angle += parent.speed
       parent.x = parent.origin.x + Math.cos(parent.angle) * currentDistance
       parent.y = parent.origin.y + Math.sin(parent.angle) * currentDistance
+      parent.rotation = parent.angle * 180 / Math.PI - 90
     }
   }
 }

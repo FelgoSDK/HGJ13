@@ -1,26 +1,14 @@
 import VPlay 1.0
 import QtQuick 1.1
+import "../menu"
 
 SceneBase {
   id: scene
 
-  /*MultiResolutionImage {
-    id: redWins
+  Background {
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_red-sd.png"
+    source: "../img/options_screen-sd.png"
   }
-
-  MultiResolutionImage {
-    id: greenWins
-    anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_green-sd.png"
-  }
-
-  MultiResolutionImage {
-    id: drawWins
-    anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/end_of_game_draw-sd.png"
-  }*/
 
   function backPressed() {
     audioManager.playMusic(audioManager.idMusicBG)
@@ -29,20 +17,7 @@ SceneBase {
   }
 
   function open() {
-    drawWins.visible = false
-    redWins.visible = false
-    greenWins.visible = false
-
     opacity = 1
-    if(settingsManager.balance === settingsManager.balance2) {
-      drawWins.visible = true
-    } else {
-      if(settingsManager.balance > settingsManager.balance2) {
-        redWins.visible = true
-      } else {
-        greenWins.visible = true
-      }
-    }
   }
 
   MouseArea {

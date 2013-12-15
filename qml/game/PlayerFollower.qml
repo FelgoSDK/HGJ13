@@ -45,7 +45,7 @@ EntityBase {
 
   SpriteSequenceFromFile {
     id: sprite
-    translateToCenterAnchor: true
+    //translateToCenterAnchor: true
 
     filename: "../img/images-sd.json"
     running: true
@@ -127,6 +127,15 @@ EntityBase {
     }
   }
 
+  SingleSpriteFromFile {
+    id: tower
+    filename: "../img/images-sd.json"
+    source: "rocket"+entityId+".png"
+    //translateToCenterAnchor: false
+    rotation: parent.weaponAngle
+  }
+
+
   DebugVisual {
     x: -sprite.width/2
     y: -sprite.height/2
@@ -135,19 +144,52 @@ EntityBase {
   }
 
 
- /* PlayerDragger {
+  MultiTouchArea {
+    x: scene.gameWindowAnchorItem.x
+    y: scene.gameWindowAnchorItem.y-scene.gameWindowAnchorItem.height/2
+    width: scene.gameWindowAnchorItem.width/2
+    height: scene.gameWindowAnchorItem.height
 
+    DebugVisual {
+      x: parent.x
+      y: parent.y
+      width: parent.width
+      height: parent.height
+      color: "yellow"
+    }
+
+    onClicked: {
+      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
+      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
+      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
+    }
+
+    onPressed: {
+      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
+      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
+      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
+
+    }
+
+    onReleased: {
+      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
+      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
+      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
+
+    }
   }
-*/
+
   MultiTouchArea {
     anchors.centerIn: parent
     width: 80
     height: 80
 
     DebugVisual {
-      anchors.fill: parent
+      x: parent.x
+      y: parent.y
+      width: parent.width
+      height: parent.height
       color: "green"
-      opacity: 1
     }
 
     onClicked: {

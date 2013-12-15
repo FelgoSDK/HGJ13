@@ -24,29 +24,16 @@ SceneBase {
     anchors.rightMargin: 20
 
     TextButton {
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        settingsManager.sound ^= 1
-      }
       textSize: 28
       textColor: "white"
       text: qsTr("David Berger")+translation.language
     }
     TextButton {
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        settingsManager.music ^= 1
-      }
       textSize: 28
       textColor: "white"
       text: qsTr("Peter Kainrad")+translation.language
     }
     TextButton {
-      id: sleep
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        settingsManager.goToSleep ^= 1
-      }
       textSize: 28
       textColor: "white"
       text: qsTr("Fabian Meisinger")+translation.language

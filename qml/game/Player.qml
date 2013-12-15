@@ -215,10 +215,24 @@ EntityBase {
       color: "yellow"
     }
 
-    onClicked: changeTurretDir(mouseX,mouseY)
+    onClicked: {
+      changeTurretDir(mouseX,mouseY)
+      if(!shootingTimer.running) {
+        releaseTheRockets()
+        shootingTimer.start()
+      }
+    }
+
     onPositionChanged: changeTurretDir(mouseX,mouseY)
-    onPressed: changeTurretDir(mouseX,mouseY)
-    onReleased: changeTurretDir(mouseX,mouseY)
+
+    onPressed: {
+      changeTurretDir(mouseX,mouseY)
+      touchShootEnabled = true
+    }
+    onReleased: {
+      changeTurretDir(mouseX,mouseY)
+      touchShootEnabled = false
+    }
 
     function changeTurretDir(mouseX,mouseY){
           var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
@@ -226,33 +240,5 @@ EntityBase {
           parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
           //if(followerEntity.entityId == "2") parent.weaponAngle*=-1
         }
-  }
-
-  MultiTouchArea {
-    anchors.centerIn: collider
-    width: collider.width
-    height: collider.height
-
-    DebugVisual {
-      x: parent.x
-      y: parent.y
-      width: parent.width
-      height: parent.height
-      color: "green"
-    }
-
-    onClicked: {
-      if(!shootingTimer.running) {
-        releaseTheRockets()
-        shootingTimer.start()
-      }
-    }
-    onPressed: {
-      touchShootEnabled = true
-    }
-
-    onReleased: {
-      touchShootEnabled = false
-    }
   }
 }

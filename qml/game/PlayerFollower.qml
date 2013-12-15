@@ -1,5 +1,6 @@
 import VPlay 1.0
 import QtQuick 1.1
+import "../entities"
 import "../scripts/Vector2d.js" as V
 
 EntityBase {

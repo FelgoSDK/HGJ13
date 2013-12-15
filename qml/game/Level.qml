@@ -83,15 +83,6 @@ Item {
     return (character && character2) ? [character.controller, character2.controller] : 0
   }
 
-  function getPlayer1() {
-    return character
-  }
-
-  function getPlayer2() {
-    return character2
-  }
-
-
   Player {
     id: character
     entityId: "1"

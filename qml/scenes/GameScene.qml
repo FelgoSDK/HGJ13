@@ -72,7 +72,6 @@ SceneBase {
     LevelLogic.init(settingsManager.satelliteOrbits)
     level.reset()
     LevelLogic.setGravityWells(level.getGravityWells())
-    LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
   }
 
   onOpacityChanged: {

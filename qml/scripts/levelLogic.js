@@ -4,7 +4,6 @@ var satelliteUrl = Qt.resolvedUrl("../entities/Satellite.qml");
 var cometUrl = Qt.resolvedUrl("../entities/Comet.qml");
 var objects = {};
 var objectsCount = 0;
-var players = {};
 var gravityWells = {};
 var earthId = "";
 var direction = Qt.point(0,0);
@@ -37,11 +36,6 @@ function init(orbits) {
     satelliteAlive[i] = false;
   }
   satelliteOrbits = orbits;
-}
-
-function setPlayers(player1, player2) {
-  players[player1.entityId] = player1;
-  players[player2.entityId] = player2;
 }
 
 function spawnSatellite() {

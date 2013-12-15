@@ -48,12 +48,6 @@ SceneBase {
     height: parent.height
   }
 
-  Text {
-    id: debugTextForRockets
-    color: "white"
-    visible: developerBuild
-  }
-
   Button  {
     anchors.right: scene.gameWindowAnchorItem.right
     anchors.top: scene.gameWindowAnchorItem.top
@@ -75,6 +69,9 @@ SceneBase {
 
   function initScene() {
     LevelLogic.init(settingsManager.satelliteOrbits)
+    level.reset()
+    LevelLogic.setGravityWells(level.getGravityWells())
+    LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
   }
 
   onOpacityChanged: {
@@ -103,10 +100,7 @@ SceneBase {
 
   function startGame() {
     gameIsRunning = true
-    level.reset()
     gameTime.start()
-    LevelLogic.setGravityWells(level.getGravityWells())
-    LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
   }
 
   function stopGame() {
@@ -133,15 +127,11 @@ SceneBase {
 
   Timer {
     id: gameTime
-    interval: 50
+    interval: 100
     repeat: true
     onTriggered: {
       level.update()
       LevelLogic.applyGravity()
-
-      if(debugTextForRockets.visible) {
-        debugTextForRockets.text = LevelLogic.objectsCount
-      }
 
       if(level.satelliteCount < settingsManager.satelliteCount && !satelliteSpawnTime.running) {
         satelliteSpawnTime.start();

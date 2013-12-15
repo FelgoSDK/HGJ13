@@ -86,7 +86,7 @@ Item {
   }
 
 
-  PlayerFollower {
+  Player {
     id: character
     entityId: "1"
     collisionGroup: settingsManager.player1Group
@@ -107,7 +107,7 @@ Item {
     anchors.centerIn: character
   }
 
-  PlayerFollower {
+  Player {
     id: character2
     entityId: "2"
     collisionGroup: settingsManager.player2Group

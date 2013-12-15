@@ -7,8 +7,8 @@ GravityEntity {
   entityType: "shield"
   variationType: "1"
   //anchors.centerIn: parent
-  width: sprite.width
-  height: sprite.height
+  width: collider.width
+  height: collider.height
 
   property int radius: 42
   property int hitpoints: 5

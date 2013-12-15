@@ -44,6 +44,15 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
+
+      if(collidedEntityType === "rocket") {
+        var playerNumber = -collidedEntity.collisionGroup;
+        if(playerNumber > 0) {
+          settingsManager["rocket" + playerNumber]++
+          settingsManager["balance" + playerNumber] += settingsManager.rocketScore;
+        }
+      }
+
       audioManager.play(audioManager.idEXPOLOSION)
       destroyRocket()
     }
@@ -102,8 +111,8 @@ GravityEntity {
     running: true
     repeat: true
     onTriggered: {
-     var position  = getPosition()
-     /* if(oldX && oldY) {
+      var position  = getPosition()
+      /* if(oldX && oldY) {
         var dx = position.x - oldX;
         var dy = position.y - oldY;
         rocket.rotation = (1 - rocket.curveFactor) * rocket.rotation + rocket.curveFactor * Math.atan2(dy, dx) * 180 / Math.PI;
@@ -112,12 +121,12 @@ GravityEntity {
       var angle = rocket.rotation * Math.PI / 180;
       var forward2 = Qt.point(rocket.speed * Math.cos(angle), rocket.speed * Math.sin(angle));
       collider.body.applyLinearImpulse(forward2, position);
-     /* oldX = position.x;
+      /* oldX = position.x;
       oldY = position.y;*/
     }
   }
 
-/*  Rectangle {
+  /*  Rectangle {
     anchors.centerIn: collider
     width: 1
     height: 1

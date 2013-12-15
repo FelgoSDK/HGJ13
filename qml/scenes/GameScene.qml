@@ -130,10 +130,12 @@ SceneBase {
   }
 
   function startGameEndPhase(destroyedPlayerId) {
-    if(destroyedPlayerId === "1")
+    if(destroyedPlayerId === "1") {
       settingsManager.playerOneDestroyed = true;
-    else if(destroyedPlayerId === "2") {
+      settingsManager.balance2 += settingsManager.playerDestroyScore;
+    } else if(destroyedPlayerId === "2") {
       settingsManager.playerTwoDestroyed = true;
+      settingsManager.balance1 += settingsManager.playerDestroyScore;
     } else {
       console.log("invalid player id", destroyedPlayerId);
       return;

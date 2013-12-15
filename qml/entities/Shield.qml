@@ -79,12 +79,16 @@ GravityEntity {
       var component = body.parent;
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
-
-      hit();
+      hit(-collidedEntity.collisionGroup);
     }
   }
 
-  function hit() {
+  function hit(playerNumber) {
+    if(playerNumber > 0) {
+      settingsManager["shield" + playerNumber]++;
+      settingsManager["balance" + playerNumber] += settingsManager.shieldScore;
+    }
+
     --shield.hitpoints;
     if(shield.hitpoints === 4) {
       part5.visible = false

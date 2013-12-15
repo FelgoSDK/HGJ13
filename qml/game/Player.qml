@@ -163,7 +163,7 @@ EntityBase {
 
       //apply player damage here
       if(shield && shield.hitpoints > 0) {
-        shield.hit();
+        shield.hit(-collidedEntity.collisionGroup);
       } else if(--parent.hitpoint === 0) {
         killPlayer();
       }

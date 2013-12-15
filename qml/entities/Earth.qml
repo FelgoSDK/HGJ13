@@ -61,6 +61,11 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
+        var playerNumber = -collidedEntity.collisionGroup;
+        if(playerNumber > 0) {
+          settingsManager["city" + playerNumber]++
+          settingsManager["balance" + playerNumber] += settingsManager.cityScore;
+        }
         parent.hitByRocket(collidedEntity.variationType)
       }
     }

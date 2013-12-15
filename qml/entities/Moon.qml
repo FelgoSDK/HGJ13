@@ -48,7 +48,12 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
+        var playerNumber = -collidedEntity.collisionGroup;
+        settingsManager["moon" + playerNumber]++
+        settingsManager["balance" + playerNumber] += settingsManager.moonScore;
         if(--parent.hitpoints === 0) {
+          settingsManager["moondestroy" + playerNumber]++
+          settingsManager["balance" + playerNumber] += settingsManager.moonDestroyScore;
           destroyMoon()
         }
       }

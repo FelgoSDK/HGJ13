@@ -12,9 +12,34 @@ Storage {
   property bool music: true
   property bool vibrate: true
   property bool goToSleep: false
-  property int balance: 0
+  property int balance1: 0
   property int balance2: 0
   property bool debugVisualsEnabled: false
+
+  property int moonScore: -5
+  property int moonDestroyScore: -500
+  property int satelliteScore: -10
+  property int cityScore: -15
+  property int rocketScore: 0
+  property int cometScore: 10
+  property int shieldScore: 20
+  property int playerDestroyScore: 40
+
+  property int moon1: 0
+  property int moondestroy1: 0
+  property int satellite1: 0
+  property int city1: 0
+  property int rocket1: 0
+  property int comet1: 0
+  property int shield1: 0
+
+  property int moon2: 0
+  property int moondestroy2: 0
+  property int satellite2: 0
+  property int city2: 0
+  property int rocket2: 0
+  property int comet2: 0
+  property int shield2: 0
 
   property int borderRegionColliderGroup: Box.Category1
   property int earthColliderGroup: Box.Category2
@@ -61,8 +86,8 @@ Storage {
     nativeUtils.displaySleepEnabled = goToSleep
   }
 
-  onBalanceChanged: {
-    storage.setValue("balance", balance)
+  onBalance1Changed: {
+    storage.setValue("balance1", balance1)
   }
   onBalance2Changed: {
     storage.setValue("balance2", balance2)

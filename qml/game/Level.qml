@@ -61,14 +61,30 @@ Item {
     character2.maxAngle = 60
     character2.shield = shield2
 
-    settingsManager.balance = 0
-    settingsManager.balance2 = 0
-
     moon.origin = Qt.point(level.width/2, level.height/2)
     moon.angle = Math.random() < 0.5 ? -90: 90;
 
     settingsManager.playerOneDestroyed = 0
     settingsManager.playerTwoDestroyed = 0
+
+    settingsManager.balance1 = 0
+    settingsManager.balance2 = 0
+
+    settingsManager.moon1 = 0
+    settingsManager.moondestroy1 = 0
+    settingsManager.satellite1 = 0
+    settingsManager.city1 = 0
+    settingsManager.rocket1 = 0
+    settingsManager.comet1 = 0
+    settingsManager.shield1 = 0
+
+    settingsManager.moon2 = 0
+    settingsManager.moondestroy2 = 0
+    settingsManager.satellite2 = 0
+    settingsManager.city2 = 0
+    settingsManager.rocket2 = 0
+    settingsManager.comet2 = 0
+    settingsManager.shield2 = 0
   }
 
   function getTarget() {

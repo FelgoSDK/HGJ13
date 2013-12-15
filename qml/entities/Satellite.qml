@@ -50,6 +50,11 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
       if(--parent.hitpoints === 0) {
+        var playerNumber = -collidedEntity.collisionGroup;
+        if(playerNumber > 0) {
+          settingsManager["satellite" + playerNumber]++;
+          settingsManager["balance" + playerNumber] += settingsManager.satelliteScore;
+        }
         destroySatellite()
       }
     }

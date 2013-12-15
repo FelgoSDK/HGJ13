@@ -54,7 +54,7 @@ Item {
     character.minAngle = -60;
     character.maxAngle = 60;
 
-    character2.weaponAngle = 180;
+    character2.weaponAngle = 0;
     character2.minAngle = -60;
     character2.maxAngle = 60;
 

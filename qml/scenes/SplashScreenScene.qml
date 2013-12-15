@@ -14,7 +14,7 @@ SceneBase {
     id: changeToNextSceneTimer
     interval: 3000
     onTriggered: {
-      sceneLoader.activateIntroScene()
+      sceneLoader.activateWarningScene()
     }
   }
 
@@ -27,7 +27,7 @@ SceneBase {
     anchors.fill: parent
     onClicked: {
       changeToNextSceneTimer.stop()
-      sceneLoader.activateIntroScene()
+      sceneLoader.activateWarningScene()
     }
   }
 }

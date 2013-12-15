@@ -11,6 +11,7 @@ Item {
   property int textSize: 170/4
   property int offsetX: 3
   property int offsetY: 3
+  property int blinkIntervall: 200
 
   signal clicked
   signal pressed
@@ -65,7 +66,7 @@ Item {
 
   Timer {
     id: randomColorTimer
-    interval: 200
+    interval: blinkIntervall
     repeat: true
     onTriggered: textShadow.color = getRandomColor()
   }

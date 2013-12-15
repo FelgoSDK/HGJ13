@@ -4,6 +4,7 @@ import "scenes"
 
 Item {
   property string splashScene: "scenes/SplashScreenScene.qml"
+  property string warningScene: "scenes/WarningScene.qml"
   property string introScene: "scenes/IntroScene.qml"
   property string mainMenuScene: "scenes/MainMenuScene.qml"
   property string creditsScene: "scenes/CreditsScene.qml"
@@ -17,7 +18,7 @@ Item {
     sceneLoader1.source = splashScene
 
     // faster debug
-    sceneLoader1.source = gameScene
+    //sceneLoader1.source = gameScene
 
     sceneLoader1.activateScene()
   }
@@ -133,6 +134,11 @@ Item {
     } else {
       console.log("[SceneLoader] WARNING: All scenes are unbusy?")
     }
+  }
+
+
+  function activateWarningScene() {
+    loadWithFreeLoader(warningScene)
   }
 
   function activateIntroScene() {

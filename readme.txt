@@ -1,9 +1,9 @@
-1969
+I969
 ----
 
 Game:
 -----
-A multiplattform (Windows, Mac, Android, iOS (after holiday season), Blackberry (on demand)), two player space shooter with a twist.
+A multiplattform (Windows (installer in package), Mac (.app in package), Android (Play Store: https://play.google.com/store/apps/details?id=net.vplay.demos.mac.I969), iOS (after holiday season), Blackberry (on demand)), two player space shooter with a twist.
 Experience a challenging and rewarding scoring system - be fast, destroy your opponent - but don't risk too much.
 Every single mistake will drain your chances for victory! Don't hit the satellites and avoid collateral damage.
 
@@ -40,4 +40,4 @@ Peter Kainrad
 
 Done within 36 hour during Hagenberg Game Jam 2013.
 
-Realised with V-Play Game Engine (http://www.v-play.net)
+Realised with V-Play Game Engine (http://www.v-play.net) (V-Play V. 1.5.2 - Pro with Daily Build)

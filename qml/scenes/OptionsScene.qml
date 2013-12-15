@@ -16,11 +16,14 @@ SceneBase {
   }
 
   Column {
+    id: column
     spacing: 20
-    anchors.left: parent.left
-    anchors.leftMargin: 20
-    anchors.verticalCenter: parent.verticalCenter
-    width: parent.width
+    anchors.top: parent.top
+    anchors.topMargin: 20
+    anchors.right: parent.right
+    anchors.rightMargin: 20
+    //anchors.verticalCenter: parent.verticalCenter
+    //width: parent.width
 
     TextButton {
       onClicked: {
@@ -28,7 +31,7 @@ SceneBase {
         settingsManager.sound ^= 1
       }
       textSize: 28
-      textColor: "black"
+      textColor: "white"
       text: settingsManager.sound ? qsTr("Sound...............ON")+translation.language : qsTr("Sound............OFF")+translation.language
     }
     TextButton {
@@ -37,7 +40,7 @@ SceneBase {
         settingsManager.music ^= 1
       }
       textSize: 28
-      textColor: "black"
+      textColor: "white"
       text: settingsManager.music ? qsTr("Music................ON")+translation.language : qsTr("Music.............OFF")+translation.language
     }
     TextButton {
@@ -47,19 +50,26 @@ SceneBase {
         settingsManager.goToSleep ^= 1
       }
       textSize: 28
-      textColor: "black"
+      textColor: "white"
       text: settingsManager.goToSleep ? qsTr("Sleep Mode....ON")+translation.language : qsTr("Sleep Mode..OFF")+translation.language
     }
-    TextButton {
-      id: vibrate
-      onClicked: {
-        audioManager.play(audioManager.idBUTTON)
-        settingsManager.vibrate ^= 1
-      }
-      textSize: 28
-      textColor: "black"
-      text: settingsManager.vibrate ? qsTr("Vibration........ON")+translation.language : qsTr("Vibration......OFF")+translation.language
+  }
+
+  TextButton {
+    id: vibrate
+
+    anchors.top: column.bottom
+    anchors.topMargin: 40
+    anchors.left: parent.left
+    anchors.leftMargin: 20
+
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      settingsManager.vibrate ^= 1
     }
+    textSize: 28
+    textColor: "white"
+    text: settingsManager.vibrate ? qsTr("Vibration........ON")+translation.language : qsTr("Vibration......OFF")+translation.language
   }
 
   TextButton {

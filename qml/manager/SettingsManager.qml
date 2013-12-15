@@ -36,6 +36,9 @@ Storage {
   property bool playerOneDestroyed: false
   property bool playerTwoDestroyed: false
 
+  property int maxAmmo: 3
+  property int reloadTime: 2000
+
   onSoundChanged: {
     storage.setValue("sound", sound)
   }

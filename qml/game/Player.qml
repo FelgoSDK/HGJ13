@@ -35,6 +35,8 @@ EntityBase {
 
   property variant shield: null
 
+  property int ammo: settingsManager.maxAmmo
+
   // gets accessed to insert the input when touching the HUDController
   property alias controller: twoAxisController
 
@@ -110,16 +112,31 @@ EntityBase {
         releaseTheRockets()
       } else {
         shootingTimer.stop()
-        tower.visible = true
+        tower.visible = (ammo > 0)
       }
     }
   }
 
   function releaseTheRockets() {
-    if(hitpoint > 0) {
+    if(hitpoint > 0 && ammo > 0) {
       audioManager.play(audioManager.idSHOOT)
       scene.spawnRocket(followerEntity.entityId)
       tower.visible = false
+
+      if(--ammo <= 0 && !reloadTimer.running) {
+        reloadTimer.start()
+      }
+    }
+  }
+
+  Timer {
+    id: reloadTimer
+    interval: settingsManager.reloadTime
+    running: false
+    repeat: false
+    onTriggered: {
+      ammo = settingsManager.maxAmmo
+      tower.visible = true
     }
   }
 

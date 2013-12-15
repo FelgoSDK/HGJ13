@@ -204,8 +204,22 @@ EntityBase {
     source: "rocket"+entityId+".png"
     translateToCenterAnchor: false
     rotation: parent.weaponAngle
+
+
   }
 
+  Particle {
+    id: laserEffect
+
+    anchors.centerIn: tower
+    rotation: tower.rotation
+
+    // particle file
+    fileName: "../particles/Laser.json"
+
+    // start when finished loading
+    autoStart: true
+  }
 
   DebugVisual {
     x: collider.x
@@ -251,4 +265,6 @@ EntityBase {
       //if(followerEntity.entityId == "2") parent.weaponAngle*=-1
     }
   }
+
+
 }

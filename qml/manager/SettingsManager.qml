@@ -64,6 +64,9 @@ Storage {
   property int maxAmmo: 3
   property int reloadTime: 2000
 
+  property bool firstStartIndicator
+  property bool cameFromHelpMenu: true
+
   onSoundChanged: {
     storage.setValue("sound", sound)
   }
@@ -86,37 +89,29 @@ Storage {
     nativeUtils.displaySleepEnabled = goToSleep
   }
 
-  onBalance1Changed: {
-    storage.setValue("balance1", balance1)
-  }
-  onBalance2Changed: {
-    storage.setValue("balance2", balance2)
-  }
-
-
   onDebugVisualsEnabledChanged: {
     storage.setValue("debugVisualsEnabled", debugVisualsEnabled)
   }
 
   function initFirstStartValues() {
-    var firstStartIndicator = storage.getValue("firstStart")
+    var firstStartIndicatorInd = storage.getValue("firstStart")
 
-    if(typeof firstStartIndicator === "undefined") {
+    if(typeof firstStartIndicatorInd === "undefined") {
       // first start of the app
       storage.setValue("firstStart", true)
-      firstStartIndicator = true
+      firstStartIndicatorInd = true
       storage.setValue("starts", 0)
       storage.setValue("sound", true)
       storage.setValue("music", true)
       storage.setValue("vibrate", true)
-      storage.setValue("balance", 0)
-      storage.setValue("balance2", 0)
       storage.setValue("gotosleep", false)
       storage.setValue("debugVisualsEnabled", false)
-    } else if(firstStartIndicator === true) {
+    } else if(firstStartIndicatorInd === true) {
       storage.setValue("firstStart", false)
-      firstStartIndicator = false
+      firstStartIndicatorInd = false
     }
+
+    firstStartIndicator = firstStartIndicatorInd
 
     var todayDate = Qt.formatDate(new Date(), "yyyy-MM-dd").toString()
     console.debug("stored today:", todayDate, "stored lastStart:", storage.getValue("lastStart"))
@@ -128,8 +123,6 @@ Storage {
     sound = storage.getValue("sound")
     music = storage.getValue("music")
     vibrate = storage.getValue("vibrate")
-    balance = storage.getValue("balance")
-    balance2 = storage.getValue("balance2")
     goToSleep = storage.getValue("gotosleep")
     debugVisualsEnabled = storage.getValue("debugVisualsEnabled")
     if(goToSleep) {

@@ -88,7 +88,6 @@ SceneBase {
 
   function close() {
     opacity = 0
-    audioManager.stopMusic()
     stopGame()
     entityManager.removeAllEntities()
   }

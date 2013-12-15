@@ -72,6 +72,21 @@ SceneBase {
     text: settingsManager.vibrate ? qsTr("Vibration........ON")+translation.language : qsTr("Vibration......OFF")+translation.language
   }
 
+
+  TextButton {
+    anchors.top: parent.top
+    anchors.topMargin: 40
+    anchors.left: parent.left
+    anchors.leftMargin: 20
+    onClicked: {
+      audioManager.play(audioManager.idBUTTON)
+      settingsManager.cameFromHelpMenu = true
+      sceneLoader.activateTutorialScene()
+    }
+    text: qsTr("HELP")+translation.language
+  }
+
+
   TextButton {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom

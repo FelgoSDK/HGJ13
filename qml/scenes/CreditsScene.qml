@@ -15,6 +15,44 @@ SceneBase {
     sceneLoader.activateMainMenuScene()
   }
 
+  Column {
+    id: column
+    spacing: 20
+    anchors.top: parent.top
+    anchors.topMargin: 20
+    anchors.right: parent.right
+    anchors.rightMargin: 20
+
+    TextButton {
+      onClicked: {
+        audioManager.play(audioManager.idBUTTON)
+        settingsManager.sound ^= 1
+      }
+      textSize: 28
+      textColor: "white"
+      text: qsTr("David Berger")+translation.language
+    }
+    TextButton {
+      onClicked: {
+        audioManager.play(audioManager.idBUTTON)
+        settingsManager.music ^= 1
+      }
+      textSize: 28
+      textColor: "white"
+      text: qsTr("Peter Kainrad")+translation.language
+    }
+    TextButton {
+      id: sleep
+      onClicked: {
+        audioManager.play(audioManager.idBUTTON)
+        settingsManager.goToSleep ^= 1
+      }
+      textSize: 28
+      textColor: "white"
+      text: qsTr("Fabian Meisinger")+translation.language
+    }
+  }
+
   TextButton {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom

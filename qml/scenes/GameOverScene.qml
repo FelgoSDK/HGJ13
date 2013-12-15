@@ -18,6 +18,13 @@ SceneBase {
 
   function open() {
     opacity = 1
+    if(!settingsManager.playerOneDestroyed && settingsManager.playerTwoDestroyed) {
+      console.debug("player one has won!")
+    } else if(settingsManager.playerOneDestroyed && !settingsManager.playerTwoDestroyed) {
+      console.debug("player two has won!")
+    } else {
+      console.debug("both of you have lost!")
+    }
   }
 
   MouseArea {

@@ -182,8 +182,8 @@ EntityBase {
   }
 
   function rmvEntity() {
+    scene.startGameEndPhase(entityId);
     followerEntity.removeEntity()
-    // end game here
   }
 
   SingleSpriteFromFile {

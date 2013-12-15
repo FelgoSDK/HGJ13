@@ -33,6 +33,9 @@ Storage {
   property variant satelliteOrbits: [45, 90, 135, 60, 105, 75]
   property int cometCount: 4
 
+  property bool playerOneDestroyed: false
+  property bool playerTwoDestroyed: false
+
   onSoundChanged: {
     storage.setValue("sound", sound)
   }

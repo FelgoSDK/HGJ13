@@ -130,6 +130,30 @@ SceneBase {
     }
   }
 
+  function startGameEndPhase(destroyedPlayerId) {
+    if(destroyedPlayerId === "1")
+      settingsManager.playerOneDestroyed = true;
+    else if(destroyedPlayerId === "2") {
+      settingsManager.playerTwoDestroyed = true;
+    } else {
+      console.log("invalid player id", destroyedPlayerId);
+      return;
+    }
+
+    if(!gameEndTimer.running) {
+      gameEndTimer.start();
+    }
+  }
+
+  Timer {
+    id: gameEndTimer
+    interval: 1000
+    repeat: false
+    onTriggered: {
+      stopGame();
+    }
+  }
+
   Timer {
     id: gameTime
     interval: 100

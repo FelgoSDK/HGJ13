@@ -16,26 +16,39 @@ SceneBase {
     sceneLoader.activateMainMenuScene()
   }
 
-  function open() {
-    opacity = 1
-    if(!settingsManager.playerOneDestroyed && settingsManager.playerTwoDestroyed) {
-      console.debug("player one has won!")
-    } else if(settingsManager.playerOneDestroyed && !settingsManager.playerTwoDestroyed) {
-      console.debug("player two has won!")
-    } else {
-      console.debug("both of you have lost!")
-    }
+  TextButton {
+    id: winnerScreen
+    blinkIntervall: 200
+    text: qsTr("Winner ...")+translation.language
+    anchors.right: scene.right
+    anchors.rightMargin: 50
+    anchors.top: scene.top
+    anchors.topMargin: 130
+    font: fontHUD
   }
 
-  MouseArea {
-    anchors.fill: parent
+  TextButton {
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: 10
     onClicked: {
-      // stop fanfare
-      audioManager.stopMusic()
+      // stop ingame music
+      //audioManager.stopMusic()
       audioManager.playMusic(audioManager.idMusicBG)
       audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateMainMenuScene()
     }
+    text: qsTr("CONTINUE")+translation.language
   }
 
+  function open() {
+    opacity = 1
+    if(!settingsManager.playerOneDestroyed && settingsManager.playerTwoDestroyed) {
+      winnerScreen.text = qsTr("Player 1 won!")+translation.language
+    } else if(settingsManager.playerOneDestroyed && !settingsManager.playerTwoDestroyed) {
+      winnerScreen.text = qsTr("Player 2 won!")+translation.language
+    } else {
+      winnerScreen.text = qsTr("Draw!")+translation.language
+    }
+  }
 }

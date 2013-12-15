@@ -15,7 +15,7 @@ Item {
 
   Component.onCompleted: {
     // splash screen is special and gets loaded on startup!
-    sceneLoader1.source = splashScene
+    sceneLoader1.source = gameOverScene
 
     // faster debug
     //sceneLoader1.source = gameScene

@@ -171,18 +171,18 @@ EntityBase {
   }
 
   Particle {
-    id: flyer
+    id: killParticleEffect
 
     //x: sprite.x+sprite.width/2
     //y: sprite.y+sprite.height/2
 
     // particle file
-    fileName: "../particles/BoingStar.json"
+    fileName: "../particles/player_explosion.json"
 
     // start when finished loading
     autoStart: false
     //scale: 0.2
-    duration: 0.3
+    //duration: 0.3
 
     onRunningChanged: {
       if(!running) {
@@ -195,7 +195,7 @@ EntityBase {
     collider.active = false
     sprite.visible = false
     tower.visible = false
-    flyer.start()
+    killParticleEffect.start()
   }
 
   function rmvEntity() {

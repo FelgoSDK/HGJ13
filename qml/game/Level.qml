@@ -66,6 +66,9 @@ Item {
 
     moon.origin = Qt.point(level.width/2, level.height/2)
     moon.angle = Math.random() < 0.5 ? -90: 90;
+
+    settingsManager.playerOneDestroyed = 0
+    settingsManager.playerTwoDestroyed = 0
   }
 
   function getTarget() {

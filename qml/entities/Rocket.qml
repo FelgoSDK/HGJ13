@@ -50,13 +50,13 @@ GravityEntity {
   }
 
   Particle {
-    id: flyer
+    id: rocketExplosion
 
-    //x: sprite.x+sprite.width/2
-    //y: sprite.y+sprite.height/2
+    x: sprite.x+sprite.width
+    y: sprite.y+sprite.height/2
 
     // particle file
-    fileName: "../particles/BoingStar.json"
+    fileName: "../particles/rocket_explosion.json"
 
     // start when finished loading
     autoStart: false
@@ -73,7 +73,7 @@ GravityEntity {
   function destroyRocket() {
     collider.active = false
     sprite.visible = false
-    flyer.start()
+    rocketExplosion.start()
   }
 
   function rmvEntity() {

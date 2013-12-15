@@ -7,9 +7,9 @@ SceneBase {
 
   TextButton {
     id: warnung
-    anchors.top: parent.top
+    anchors.top: scene.gameWindowAnchorItem.top
     anchors.topMargin: 20
-    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.horizontalCenter: scene.gameWindowAnchorItem.horizontalCenter
     font: fontHUD
     text: qsTr("Epilepsie Warnung")+translation.language
     blinkIntervall: 100
@@ -18,13 +18,13 @@ SceneBase {
   Text {
     id: first
     anchors.top: warnung.bottom
-    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.left: scene.gameWindowAnchorItem.left
+    anchors.leftMargin: 20
     text: qsTr("WARNUNG: VOR DEM SPIELEN LESEN!\nBei manchen Personen kann es in besonderen Fällen zu epileptischen Anfällen oder Bewusstseinsstörungen kommen, wenn sie bestimmten Blitzlichtern oder Lichteffekten ausgesetzt sind.Diese Personen können möglicherweise bei der Benutzung von Computer- und Videospielen einen Anfall erleiden. Hiervon können auch Personen betroffen sein, deren Krankheitsgeschichte bislang keine Epilepsie aufweist und die nie zuvor epileptische Anfälle gehabt haben [...]")+translation.language
     color: "White"
-    width: parent.width-30
-    height: 200
+    width: scene.width-40
+    height: 250
   }
-
 
   Timer {
     id: changeToNextSceneTimer

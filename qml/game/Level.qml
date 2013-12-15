@@ -105,6 +105,7 @@ Item {
   Shield {
     id: shield1
     anchors.centerIn: character
+    collisionGroup: character.collisionGroup
   }
 
   Player {
@@ -129,6 +130,7 @@ Item {
     id: shield2
     rotation: Math.PI
     anchors.centerIn: character2
+    collisionGroup: character2.collisionGroup
     variationType: "2"
   }
 

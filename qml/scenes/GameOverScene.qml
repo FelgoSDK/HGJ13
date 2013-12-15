@@ -7,7 +7,7 @@ SceneBase {
 
   Background {
     anchors.centerIn: scene.gameWindowAnchorItem
-    source: "../img/options_screen-sd.png"
+    source: "../img/bg_ingame-sd.png"
   }
 
   function backPressed() {
@@ -20,10 +20,7 @@ SceneBase {
     id: winnerScreen
     blinkIntervall: 200
     text: qsTr("Winner ...")+translation.language
-    anchors.right: scene.right
-    anchors.rightMargin: 50
-    anchors.top: scene.top
-    anchors.topMargin: 130
+    anchors.centerIn: scene.gameWindowAnchorItem
     font: fontHUD
   }
 

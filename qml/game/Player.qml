@@ -16,7 +16,7 @@ EntityBase {
   property real weaponAngle: 0
   property real minAngle: 0
   property real maxAngle: 0
-  property real speed: 1
+  property real speed: 2
   property bool isShooting: false
   property int attackCooldown: 500
   property bool touchShootEnabled: false
@@ -252,10 +252,10 @@ EntityBase {
     }
 
     function changeTurretDir(mouseX,mouseY){
-          var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
-          var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
-          parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
-          //if(followerEntity.entityId == "2") parent.weaponAngle*=-1
-        }
+      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
+      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
+      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
+      //if(followerEntity.entityId == "2") parent.weaponAngle*=-1
+    }
   }
 }

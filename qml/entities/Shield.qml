@@ -80,19 +80,23 @@ GravityEntity {
       var collidedEntity = component.owningEntity;
       var collidedEntityType = collidedEntity.entityType;
 
-      --parent.hitpoints;
-      if(parent.hitpoints === 4) {
-        part5.visible = false
-      } else if(parent.hitpoints === 3) {
-        part1.visible = false
-      } else if(parent.hitpoints === 2) {
-        part4.visible = false
-      } else if(parent.hitpoints === 1) {
-        part2.visible = false
-      } else if(parent.hitpoints === 0) {
-        part3.visible = false
-        destroyShield()
-      }
+      hit();
+    }
+  }
+
+  function hit() {
+    --shield.hitpoints;
+    if(shield.hitpoints === 4) {
+      part5.visible = false
+    } else if(shield.hitpoints === 3) {
+      part1.visible = false
+    } else if(shield.hitpoints === 2) {
+      part4.visible = false
+    } else if(shield.hitpoints === 1) {
+      part2.visible = false
+    } else if(shield.hitpoints === 0) {
+      part3.visible = false
+      destroyShield()
     }
   }
 

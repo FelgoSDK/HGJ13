@@ -49,15 +49,17 @@ Item {
   }
 
   function reset() {
-    character.weaponPosition = Qt.point(10,18);
-    character.weaponAngle = 0;
-    character.minAngle = -60;
-    character.maxAngle = 60;
+    character.weaponPosition = Qt.point(10,18)
+    character.weaponAngle = 0
+    character.minAngle = -60
+    character.maxAngle = 60
+    character.shield = shield1
 
-    character2.weaponPosition = Qt.point(33,34);
-    character2.weaponAngle = 0;
-    character2.minAngle = -60;
-    character2.maxAngle = 60;
+    character2.weaponPosition = Qt.point(33,34)
+    character2.weaponAngle = 0
+    character2.minAngle = -60
+    character2.maxAngle = 60
+    character2.shield = shield2
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0

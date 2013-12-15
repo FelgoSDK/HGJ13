@@ -33,6 +33,8 @@ EntityBase {
 
   property int swayTime: Math.random() * 10
 
+  property variant shield: null
+
   // gets accessed to insert the input when touching the HUDController
   property alias controller: twoAxisController
 
@@ -102,7 +104,9 @@ EntityBase {
     running: false
     repeat: true
     onTriggered: {
-      if(parent.isShooting || touchShootEnabled) {
+      if(parent.hitpoint <= 0) {
+        shootingTimer.stop()
+      } else if(parent.isShooting || touchShootEnabled) {
         releaseTheRockets()
       } else {
         shootingTimer.stop()
@@ -112,9 +116,11 @@ EntityBase {
   }
 
   function releaseTheRockets() {
-    audioManager.play(audioManager.idSHOOT)
-    scene.spawnRocket(followerEntity.entityId)
-    tower.visible = false
+    if(hitpoint > 0) {
+      audioManager.play(audioManager.idSHOOT)
+      scene.spawnRocket(followerEntity.entityId)
+      tower.visible = false
+    }
   }
 
   BoxCollider {
@@ -139,7 +145,9 @@ EntityBase {
       var collidedEntityType = collidedEntity.entityType;
 
       //apply player damage here
-      if(--parent.hitpoint === 0) {
+      if(shield && shield.hitpoints > 0) {
+        shield.hit();
+      } else if(--parent.hitpoint === 0) {
         killPlayer();
       }
     }

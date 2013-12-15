@@ -54,9 +54,9 @@ Item {
     character.minAngle = -60;
     character.maxAngle = 60;
 
-    character2.weaponAngle = 0;
-    character2.minAngle = -60;
-    character2.maxAngle = 60;
+    character2.weaponAngle = 180;
+    character2.minAngle = -60;//120;
+    character2.maxAngle = 60;//240;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0
@@ -86,40 +86,51 @@ Item {
   }
 
 
-    Player {
-      id: character
-      entityId: "1"
-      collisionGroup: settingsManager.player1Group
+  PlayerFollower {
+    id: character
+    entityId: "1"
+    collisionGroup: settingsManager.player1Group
 
-      x: 0
-      y: level.height/2-height/2
+    x: 0
+    y: level.height/2-height/2
 
-      inputActionsToKeyCode: {
-        "up": Qt.Key_Up,
-            "down": Qt.Key_Down,
-            "left": Qt.Key_Left,
-            "right": Qt.Key_Right
-      }
+    inputActionsToKeyCode: {
+      "up": Qt.Key_Up,
+          "down": Qt.Key_Down,
+          "left": Qt.Key_Left,
+          "right": Qt.Key_Right
     }
+  }
 
+  Shield {
+    id: shield1
+    anchors.centerIn: character
+  }
 
-    Player {
-      id: character2
-      entityId: "2"
-      collisionGroup: settingsManager.player2Group
-      transformOrigin: Item.Center
+  PlayerFollower {
+    id: character2
+    entityId: "2"
+    collisionGroup: settingsManager.player2Group
+    transformOrigin: Item.Center
 
-      x: level.width-width
-      y: level.height/2-height/2
-      rotation: 180
+    x: level.width-width
+    y: level.height/2-height/2
+    rotation: 180
 
-      inputActionsToKeyCode: {
-        "up": Qt.Key_W,
-            "down": Qt.Key_S,
-            "left": Qt.Key_A,
-            "right": Qt.Key_D
-      }
+    inputActionsToKeyCode: {
+      "up": Qt.Key_W,
+          "down": Qt.Key_S,
+          "left": Qt.Key_A,
+          "right": Qt.Key_D
     }
+  }
+
+  Shield {
+    id: shield2
+    rotation: Math.PI
+    anchors.centerIn: character2
+    variationType: "2"
+  }
 
   Earth {
     id: earth

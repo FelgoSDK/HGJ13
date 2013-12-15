@@ -13,7 +13,13 @@ SceneBase {
   function backPressed() {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
-    sceneLoader.activateMainMenuScene()
+    sceneLoader.activateResultScene()
+  }
+  // this allows navigation through key presses
+  Keys.onReturnPressed: {
+    audioManager.playMusic(audioManager.idMusicBG)
+    audioManager.play(audioManager.idBUTTON)
+    sceneLoader.activateResultScene()
   }
 
   TextButton {

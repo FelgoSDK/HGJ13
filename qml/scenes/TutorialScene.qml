@@ -30,7 +30,6 @@ SceneBase {
   }
 
   function changeToNextScene() {
-    console.debug("!!!!!!!!!!!!",settingsManager.cameFromHelpMenu)
     if(settingsManager.cameFromHelpMenu) {
       sceneLoader.activateOptionsScene()
     } else {

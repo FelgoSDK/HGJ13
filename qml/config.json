@@ -9,7 +9,7 @@
     "prerendered_icon": true
   },
   
-  "stage--": "publish",
+  "stage": "publish--",
   
   "plugins": [ "gui" ]
 }

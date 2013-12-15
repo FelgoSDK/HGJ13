@@ -55,8 +55,8 @@ Item {
     character.maxAngle = 60;
 
     character2.weaponAngle = 180;
-    character2.minAngle = 120;
-    character2.maxAngle = 240;
+    character2.minAngle = -60;//120;
+    character2.maxAngle = 60;//240;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0

@@ -4,7 +4,7 @@ import QtQuick 1.1
 SceneBase {
   id: scene
 
-  MultiResolutionImage {
+  /*MultiResolutionImage {
     id: redWins
     anchors.centerIn: scene.gameWindowAnchorItem
     source: "../img/end_of_game_red-sd.png"
@@ -20,7 +20,7 @@ SceneBase {
     id: drawWins
     anchors.centerIn: scene.gameWindowAnchorItem
     source: "../img/end_of_game_draw-sd.png"
-  }
+  }*/
 
   function backPressed() {
     audioManager.playMusic(audioManager.idMusicBG)

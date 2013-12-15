@@ -49,13 +49,13 @@ Item {
   }
 
   function reset() {
-    character.weaponPosition = Qt.point(10,18)
+    character.weaponPosition = Qt.point(0,0)
     character.weaponAngle = 0
     character.minAngle = -60
     character.maxAngle = 60
     character.shield = shield1
 
-    character2.weaponPosition = Qt.point(33,34)
+    character2.weaponPosition = Qt.point(0,0)
     character2.weaponAngle = 0
     character2.minAngle = -60
     character2.maxAngle = 60
@@ -104,8 +104,8 @@ Item {
     entityId: "1"
     collisionGroup: settingsManager.player1Group
 
-    x: 0
-    y: level.height/2-height/2
+    x: 20
+    y: level.height/2
 
     inputActionsToKeyCode: {
       "up": Qt.Key_W,
@@ -117,7 +117,6 @@ Item {
 
   Shield {
     id: shield1
-    anchors.centerIn: character
     collisionGroup: character.collisionGroup
   }
 
@@ -125,10 +124,9 @@ Item {
     id: character2
     entityId: "2"
     collisionGroup: settingsManager.player2Group
-    transformOrigin: Item.Center
 
-    x: level.width-width
-    y: level.height/2-height/2
+    x: level.width - 20
+    y: level.height/2
     rotation: 180
 
     inputActionsToKeyCode: {
@@ -142,7 +140,6 @@ Item {
   Shield {
     id: shield2
     rotation: Math.PI
-    anchors.centerIn: character2
     collisionGroup: character2.collisionGroup
     variationType: "2"
   }

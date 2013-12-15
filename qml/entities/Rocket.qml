@@ -29,9 +29,8 @@ GravityEntity {
 
   BoxCollider {
     id: collider
-    width: sprite.width
-    height: sprite.height/2
-    anchors.centerIn: parent
+    width: 3 * sprite.width / 4
+    height: sprite.height / 3
     bullet: true
     fixedRotation: true
     groupIndex: settingsManager.neutralGroup
@@ -94,9 +93,6 @@ GravityEntity {
     id: sprite
     filename: "../img/images-sd.json"
     source: "rocket"+variationType+".png"
-    x: 0
-    y: 0
-    //translateToCenterAnchor: false
   }
 
   DebugVisual {

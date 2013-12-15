@@ -30,36 +30,36 @@ GravityEntity {
 
   ShieldPart {
     id: part1
-    x: Math.cos(parent.rotation + 2 * angle) * radius - width / 2
-    y: Math.sin(parent.rotation + 2 * angle) * radius - height / 2
+    x: Math.cos(-2 * angle) * radius - width / 2
+    y: Math.sin(-2 * angle) * radius - height / 2
     variationType : parent.variationType
   }
 
   ShieldPart {
     id: part2
-    x: Math.cos(parent.rotation + angle) * radius - width / 2
-    y: Math.sin(parent.rotation + angle) * radius - height / 2
+    x: Math.cos(-angle) * radius - width / 2
+    y: Math.sin(-angle) * radius - height / 2
     variationType : parent.variationType
   }
 
   ShieldPart {
     id: part3
-    x: Math.cos(parent.rotation) * radius - width / 2
-    y: Math.sin(parent.rotation) * radius - height / 2
+    x: Math.cos(0) * radius - width / 2
+    y: Math.sin(0) * radius - height / 2
     variationType : parent.variationType
   }
 
   ShieldPart {
     id: part4
-    x: Math.cos(parent.rotation - angle) * radius - width / 2
-    y: Math.sin(parent.rotation - angle) * radius - height / 2
+    x: Math.cos(angle) * radius - width / 2
+    y: Math.sin(angle) * radius - height / 2
     variationType : parent.variationType
   }
 
   ShieldPart {
     id: part5
-    x: Math.cos(parent.rotation - 2 * angle) * radius - width / 2
-    y: Math.sin(parent.rotation - 2 * angle) * radius - height / 2
+    x: Math.cos(2 * angle) * radius - width / 2
+    y: Math.sin(2 * angle) * radius - height / 2
     variationType : parent.variationType
   }
 

@@ -55,22 +55,13 @@ EntityBase {
 
 
 
-  SpriteSequenceFromFile {
+  SingleSpriteFromFile {
     id: sprite
     translateToCenterAnchor: false
-
     filename: "../img/images-sd.json"
-    running: true
-
-    Sprite {
-      name: "idle"
-      frameNames: [
-        entityType+entityId+".png",
-      ]
-      frameRate: followerEntity.frameRate
-
-      loop: true
-    }
+    source: entityType + entityId + ".png"
+    x: -sprite.width / 2
+    y: -sprite.height / 2
   }
 
   TwoAxisController {
@@ -97,6 +88,9 @@ EntityBase {
       parent.y += Math.cos(swayTime / 50) / 3;
       parent.x += Math.cos(swayTime / 25) / 6;
       parent.rotation += Math.cos(swayTime / 15) / 5;
+      shield.x = parent.x
+      shield.y = parent.y
+      shield.rotation = parent.rotation
     }
   }
 
@@ -136,17 +130,16 @@ EntityBase {
     repeat: false
     onTriggered: {
       ammo = settingsManager.maxAmmo
-      tower.visible = true
+      tower.visible = (parent.hitpoint > 0)
     }
   }
 
   BoxCollider {
     id: collider
 
-    width: sprite.width
-    height: sprite.height
-    anchors.centerIn: parent
-    rotation: parent.rotation
+    width: 3 * sprite.width / 4
+    height: 3 * sprite.height / 4
+    anchors.centerIn: sprite
 
     collisionTestingOnlyMode: true
     bodyType: Body.Kinematic

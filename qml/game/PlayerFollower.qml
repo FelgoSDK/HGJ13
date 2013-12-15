@@ -4,13 +4,14 @@ import "../scripts/Vector2d.js" as V
 
 EntityBase {
   id: followerEntity
+  width: sprite.width
+  height: sprite.height
 
-
-  //preventFromRemovalFromEntityManager: true
+  preventFromRemovalFromEntityManager: true
 
   entityType: "player"
   entityId: "1"
-  property variant weaponPosition: Qt.point(20, 0)
+  property variant weaponPosition: Qt.point(-tower.width/2, -tower.height/2)
   property real weaponAngle: 0
   property real minAngle: 0
   property real maxAngle: 0
@@ -43,9 +44,11 @@ EntityBase {
     }
   }
 
+
+
   SpriteSequenceFromFile {
     id: sprite
-    //translateToCenterAnchor: true
+    translateToCenterAnchor: false
 
     filename: "../img/images-sd.json"
     running: true
@@ -102,11 +105,12 @@ EntityBase {
     scene.spawnRocket(followerEntity.entityId)
   }
 
-  CircleCollider {
+  BoxCollider {
     id: collider
-    radius: sprite.width/2
+
     width: sprite.width
     height: sprite.height
+    anchors.centerIn: parent
 
     collisionTestingOnlyMode: true
     bodyType: Body.Kinematic
@@ -129,60 +133,50 @@ EntityBase {
 
   SingleSpriteFromFile {
     id: tower
+    anchors.centerIn: collider
+
     filename: "../img/images-sd.json"
     source: "rocket"+entityId+".png"
-    //translateToCenterAnchor: false
+    translateToCenterAnchor: false
     rotation: parent.weaponAngle
   }
 
 
   DebugVisual {
-    x: -sprite.width/2
-    y: -sprite.height/2
-    width: sprite.width
-    height: sprite.height
+    x: collider.x
+    y: collider.y
+    width: collider.width
+    height: collider.height
   }
 
 
   MultiTouchArea {
-    x: scene.gameWindowAnchorItem.x
-    y: scene.gameWindowAnchorItem.y-scene.gameWindowAnchorItem.height/2
+    y: scene.gameWindowAnchorItem.y-scene.gameWindowAnchorItem.height/2+parent.height/2
     width: scene.gameWindowAnchorItem.width/2
     height: scene.gameWindowAnchorItem.height
 
     DebugVisual {
-      x: parent.x
-      y: parent.y
-      width: parent.width
-      height: parent.height
+      anchors.fill: parent
       color: "yellow"
     }
 
-    onClicked: {
-      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
-      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
-      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
-    }
+    onClicked: changeTurretDir(mouseX,mouseY)
+    onPositionChanged: changeTurretDir(mouseX,mouseY)
+    onPressed: changeTurretDir(mouseX,mouseY)
+    onReleased: changeTurretDir(mouseX,mouseY)
 
-    onPressed: {
-      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
-      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
-      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
-
-    }
-
-    onReleased: {
-      var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
-      var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
-      parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
-
-    }
+    function changeTurretDir(mouseX,mouseY){
+          var distanceFromXAchsis = mouseY - scene.gameWindowAnchorItem.height/2;
+          var angleInDegree = Math.atan2(distanceFromXAchsis, mouseX) / Math.PI * 180
+          parent.weaponAngle = (angleInDegree < parent.minAngle) ? parent.minAngle : ((angleInDegree > parent.maxAngle) ? parent.maxAngle : angleInDegree);
+          //if(followerEntity.entityId == "2") parent.weaponAngle*=-1
+        }
   }
 
   MultiTouchArea {
-    anchors.centerIn: parent
-    width: 80
-    height: 80
+    anchors.centerIn: collider
+    width: collider.width
+    height: collider.height
 
     DebugVisual {
       x: parent.x
@@ -205,5 +199,13 @@ EntityBase {
     onReleased: {
       touchShootEnabled = false
     }
+  }
+
+  Rectangle {
+    anchors.centerIn: collider
+    width: 1
+    height: 1
+    property int vertexZ:10
+    color: "blue"
   }
 }

@@ -49,20 +49,11 @@ Item {
   }
 
   function reset() {
-    var width = level.width
-    var height = level.height
-    var centerX = width*0.5
-    var centerY = height*0.5
-    character.x = 0
-    character.y = centerY
-    character.weaponPosition = Qt.point(20, 0)
+
     character.weaponAngle = 0;
     character.minAngle = -60;
     character.maxAngle = 60;
 
-    character2.x = width
-    character2.y = centerY
-    character2.weaponPosition = Qt.point(-20, 0)
     character2.weaponAngle = 180;
     character2.minAngle = 120;
     character2.maxAngle = 240;
@@ -70,7 +61,7 @@ Item {
     settingsManager.balance = 0
     settingsManager.balance2 = 0
 
-    moon.origin = Qt.point(centerX, centerY)
+    moon.origin = Qt.point(level.width/2, level.height/2)
     moon.angle = Math.random() < 0.5 ? -90: 90;
   }
 
@@ -83,7 +74,7 @@ Item {
   }
 
   function getPlayerControllers() {
-    return [character.controller, character2.controller]
+    return (character && character2) ? [character.controller, character2.controller] : 0
   }
 
   function getPlayer1() {
@@ -94,33 +85,41 @@ Item {
     return character2
   }
 
-  PlayerFollower {
-    id: character
-    entityId: "1"
-    collisionGroup: settingsManager.player1Group
 
-    inputActionsToKeyCode: {
+    PlayerFollower {
+      id: character
+      entityId: "1"
+      collisionGroup: settingsManager.player1Group
+
+      x: 0
+      y: level.height/2-height/2
+
+      inputActionsToKeyCode: {
         "up": Qt.Key_Up,
-        "down": Qt.Key_Down,
-        "left": Qt.Key_Left,
-        "right": Qt.Key_Right
+            "down": Qt.Key_Down,
+            "left": Qt.Key_Left,
+            "right": Qt.Key_Right
+      }
     }
-  }
 
-  PlayerFollower {
-    id: character2
-    entityId: "2"
-    collisionGroup: settingsManager.player2Group
 
-    rotation: 180
+    PlayerFollower {
+      id: character2
+      entityId: "2"
+      collisionGroup: settingsManager.player2Group
+      transformOrigin: Item.Center
 
-    inputActionsToKeyCode: {
+      x: level.width-width
+      y: level.height/2-height/2
+      rotation: 180
+
+      inputActionsToKeyCode: {
         "up": Qt.Key_W,
-        "down": Qt.Key_S,
-        "left": Qt.Key_A,
-        "right": Qt.Key_D
+            "down": Qt.Key_S,
+            "left": Qt.Key_A,
+            "right": Qt.Key_D
+      }
     }
-  }
 
   Earth {
     id: earth

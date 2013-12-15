@@ -179,6 +179,8 @@
             <filename>satellite.png</filename>
             <filename>moon.png</filename>
             <filename>player1.png</filename>
+            <filename>shield1.png</filename>
+            <filename>shield2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

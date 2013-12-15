@@ -2,8 +2,8 @@
 
 "comet.png":
 {
-	"frame": {"x":1200,"y":147,"w":66,"h":82},
-	"rotated": true,
+	"frame": {"x":147,"y":674,"w":66,"h":82},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":82},
 	"sourceSize": {"w":66,"h":82}
@@ -11,66 +11,82 @@
 "earth.png":
 {
 	"frame": {"x":1,"y":1,"w":241,"h":256},
-	"rotated": true,
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":241,"h":256},
 	"sourceSize": {"w":241,"h":256}
 },
 "moon.png":
 {
-	"frame": {"x":1149,"y":1,"w":146,"h":145},
-	"rotated": true,
+	"frame": {"x":1,"y":674,"w":146,"h":145},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":145},
 	"sourceSize": {"w":146,"h":145}
 },
 "player1.png":
 {
-	"frame": {"x":257,"y":1,"w":195,"h":446},
-	"rotated": true,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":195,"h":446},
-	"sourceSize": {"w":195,"h":446}
+	"frame": {"x":1,"y":257,"w":178,"h":209},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":2,"w":178,"h":209},
+	"sourceSize": {"w":182,"h":211}
 },
 "player2.png":
 {
-	"frame": {"x":703,"y":1,"w":194,"h":446},
-	"rotated": true,
+	"frame": {"x":1,"y":466,"w":177,"h":208},
+	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":446},
-	"sourceSize": {"w":194,"h":446}
+	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":208},
+	"sourceSize": {"w":177,"h":208}
 },
 "rocket1.png":
 {
-	"frame": {"x":786,"y":195,"w":82,"h":50},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":50},
-	"sourceSize": {"w":82,"h":50}
+	"frame": {"x":179,"y":257,"w":82,"h":51},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":13,"w":82,"h":51},
+	"sourceSize": {"w":108,"h":73}
 },
 "rocket2.png":
 {
-	"frame": {"x":1149,"y":147,"w":83,"h":51},
-	"rotated": true,
+	"frame": {"x":147,"y":756,"w":82,"h":49},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":10,"w":83,"h":51},
-	"sourceSize": {"w":99,"h":69}
+	"spriteSourceSize": {"x":1,"y":0,"w":82,"h":49},
+	"sourceSize": {"w":84,"h":49}
 },
 "satellite.png":
 {
-	"frame": {"x":703,"y":195,"w":83,"h":50},
-	"rotated": false,
+	"frame": {"x":179,"y":339,"w":83,"h":50},
+	"rotated": true,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":83,"h":50},
 	"sourceSize": {"w":83,"h":50}
+},
+"shield1.png":
+{
+	"frame": {"x":179,"y":422,"w":50,"h":49},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":50,"h":49},
+	"sourceSize": {"w":52,"h":49}
+},
+"shield2.png":
+{
+	"frame": {"x":178,"y":471,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":52,"h":50}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
 	"version": "1.0",
 	"image": "images-hd2.png",
 	"format": "RGBA8888",
-	"size": {"w":1295,"h":246},
+	"size": {"w":243,"h":820},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:643bfe92a3b72c6974ea65bc2ed9d60c:e812c333745b7b47b52489d4647aa709:6030530bb437327299b6b5c64c539fbf$"
+	"smartupdate": "$TexturePacker:SmartUpdate:7e5e3a6cc7991d1625e5e2625b7ce458:5d760d432e7bcdca80d7bd2f858bd73a:6030530bb437327299b6b5c64c539fbf$"
 }
 }

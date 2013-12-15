@@ -5,7 +5,7 @@ import "../game"
 GravityEntity {
   id: comet
   entityType: "obstacle"
-  poolingEnabled: false
+  poolingEnabled: true
   width: sprite.width
   height: sprite.height
 

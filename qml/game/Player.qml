@@ -88,9 +88,11 @@ EntityBase {
       parent.y += Math.cos(swayTime / 50) / 3;
       parent.x += Math.cos(swayTime / 25) / 6;
       parent.rotation += Math.cos(swayTime / 15) / 5;
-      shield.x = parent.x
-      shield.y = parent.y
-      shield.rotation = parent.rotation
+      if(shield) {
+        shield.x = parent.x
+        shield.y = parent.y
+        shield.rotation = parent.rotation
+      }
     }
   }
 

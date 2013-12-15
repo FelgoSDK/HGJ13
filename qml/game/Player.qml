@@ -166,7 +166,6 @@ EntityBase {
 
   function rmvEntity() {
     followerEntity.removeEntity()
-    tower.removeEntiry()
     // end game here
   }
 

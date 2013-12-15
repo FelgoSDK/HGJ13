@@ -4,6 +4,7 @@ import "../game"
 import "../scripts/Vector2d.js" as V
 
 GravityEntity {
+  id: shield
   entityType: "shield"
   variationType: "1"
   //anchors.centerIn: parent
@@ -95,6 +96,6 @@ GravityEntity {
 
   function destroyShield() {
     collider.active = false
-    parent.removeEntity()
+    shield.removeEntity()
   }
 }

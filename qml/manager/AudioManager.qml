@@ -49,7 +49,7 @@ Item {
       music.volume = 1
       break
     case idMusicINGAME:
-      music.source = "../audio/ingame_music.wav"
+      music.source = "../audio/ingame_music.mp3"
       music.volume = 1
       break
     }

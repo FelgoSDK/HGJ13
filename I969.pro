@@ -25,9 +25,9 @@ win32 {
 
 # Following configs are needed for Mac App Store publishing
 macx {
-    COMPANY = "Company Name"
-    BUNDLEID = net.vplay.builds.Test
+    COMPANY = "V-Play GmbH"
+    BUNDLEID = net.vplay.demos.mac.I969
     ICON = macx/app_icon.icns
-    QMAKE_INFO_PLIST = macx/test-Info.plist
-    ENTITLEMENTS = macx/test.entitlements
+    QMAKE_INFO_PLIST = macx/game.plist
+    ENTITLEMENTS = macx/game.entitlements
 }

@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>Propaganda</string>
+	<string>I969</string>
 	<key>CFBundleIconFile</key>
 	<string>app_icon</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.vplay.builds.mac.Propaganda</string>
+	<string>net.vplay.demos.mac.I969</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Propaganda</string>
+	<string>I969</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

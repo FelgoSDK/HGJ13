@@ -13,9 +13,12 @@ Item {
   property string gameOverScene: "scenes/GameOverScene.qml"
   property string loadingScene: "scenes/LoadingScene.qml"
 
+  property string resultScene: "scenes/ResultScene.qml"
+  property string tutorialScene: "scenes/TutorialScene.qml"
+
   Component.onCompleted: {
     // splash screen is special and gets loaded on startup!
-    sceneLoader1.source = gameOverScene
+    sceneLoader1.source = splashScene
 
     // faster debug
     //sceneLoader1.source = gameScene
@@ -167,6 +170,14 @@ Item {
 
   function activateLoadingScene() {
     loadWithFreeLoader(loadingScene)
+  }
+
+  function activateResultScene() {
+    loadWithFreeLoader(resultScene)
+  }
+
+  function activateTutorialScene() {
+    loadWithFreeLoader(tutorialScene)
   }
 }
 

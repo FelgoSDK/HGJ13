@@ -13,10 +13,6 @@ SceneBase {
   TextButton {
     x: 330/4-384/8
     y: 100/4-192/8
-    onClicked: {
-      audioManager.play(audioManager.idBUTTON)
-      sceneLoader.activateLoadingScene()
-    }
     font: fontLetterHUD
     text: qsTr("1969")+translation.language
     textSize: 150
@@ -31,7 +27,12 @@ SceneBase {
     y: 950/4-192/8
     onClicked: {
       audioManager.play(audioManager.idBUTTON)
-      sceneLoader.activateLoadingScene()
+      if(settingsManager.firstStartIndicator){
+        settingsManager.cameFromHelpMenu = false
+        sceneLoader.activateTutorialScene()
+      } else {
+        sceneLoader.activateLoadingScene()
+      }
     }
     font: fontHUD
     text: qsTr("play")+translation.language

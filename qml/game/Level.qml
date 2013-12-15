@@ -108,10 +108,10 @@ Item {
     y: level.height/2-height/2
 
     inputActionsToKeyCode: {
-      "up": Qt.Key_Up,
-          "down": Qt.Key_Down,
-          "left": Qt.Key_Left,
-          "right": Qt.Key_Right
+      "up": Qt.Key_W,
+          "down": Qt.Key_S,
+          "left": Qt.Key_A,
+          "right": Qt.Key_D
     }
   }
 
@@ -132,10 +132,10 @@ Item {
     rotation: 180
 
     inputActionsToKeyCode: {
-      "up": Qt.Key_W,
-          "down": Qt.Key_S,
-          "left": Qt.Key_A,
-          "right": Qt.Key_D
+      "up": Qt.Key_Up,
+          "down": Qt.Key_Down,
+          "left": Qt.Key_Left,
+          "right": Qt.Key_Right
     }
   }
 

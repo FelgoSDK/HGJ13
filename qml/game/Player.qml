@@ -111,14 +111,13 @@ EntityBase {
     width: sprite.width
     height: sprite.height
     anchors.centerIn: parent
+    rotation: parent.rotation
 
     collisionTestingOnlyMode: true
     bodyType: Body.Kinematic
     groupIndex: settingsManager.neutralGroup
     categories: settingsManager.playerColliderGroup
     collidesWith: settingsManager.rocketColliderGroup
-
-    fixedRotation: true
 
     fixture.onBeginContact: {
       var fixture = other;

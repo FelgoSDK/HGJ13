@@ -54,9 +54,9 @@ Item {
     character.minAngle = -60;
     character.maxAngle = 60;
 
-    character2.weaponAngle = 180;
-    character2.minAngle = -60;//120;
-    character2.maxAngle = 60;//240;
+    character2.weaponAngle = 0;
+    character2.minAngle = -60;
+    character2.maxAngle = 60;
 
     settingsManager.balance = 0
     settingsManager.balance2 = 0
@@ -86,7 +86,7 @@ Item {
   }
 
 
-    PlayerFollower {
+    Player {
       id: character
       entityId: "1"
       collisionGroup: settingsManager.player1Group
@@ -103,7 +103,7 @@ Item {
     }
 
 
-    PlayerFollower {
+    Player {
       id: character2
       entityId: "2"
       collisionGroup: settingsManager.player2Group

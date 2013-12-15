@@ -14,7 +14,7 @@ GameWindow {
   //fullscreen: true
 
   // this would disable the fps label both for QML & cocos renderer - if only qml renderer should be disabled use fpsTextItem.visible: false
-  displayFpsEnabled: developerBuild
+  displayFpsEnabled: false //developerBuild
 
   // in the developer version, the fps are displayed
   property bool developerBuild: !system.publishBuild

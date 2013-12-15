@@ -3,49 +3,40 @@ import VPlay 1.0
 import "../game"
 
 GravityEntity {
-  id: obstacle
+  id: satellite
   entityType: "obstacle"
-  poolingEnabled: true
+  poolingEnabled: false
   width: sprite.width
   height: sprite.height
+  scale: 0
 
   variationType: "satellite"
 
   property variant target: undefined
-  property real speed: 0.1
+  property real speed: 0.02
   property int distance: 100
   property real angle: 0
   property variant origin: Qt.point(0, 0)
   property alias collisionGroup: collider.groupIndex
-  property int gravityForce: 0
   property int hitpoints: 1
-  property int obstacleType: 0
+  property int currentDistance: 0
+  property int index: 0
 
-  onObstacleTypeChanged: {
-    switch(obstacleType) {
-      case 2: variationType = "moon"; break;
-      case 1: variationType = "comet"; break;
-      case 0:
-      default: variationType = "satellite"; break;
-    }
-  }
-
-  EditableComponent {
-    editableType: "Obstacle"
+ /* EditableComponent {
+    editableType: "Satellite"
     properties: {
       "Obstacle": {
         "speed":               {"min": 0.005, "max": 0.1, "stepsize": 0.005, "label": "Speed"},
-        "distance":            {"min": 40, "max": 160, "stepsize": 1, "label": "Distance"},
-        "obstacleType":        {"min": 0, "max": 2, "stepsize": 1, "label": "Obstacle Type"},
-        "gravityForce":        {"min": 0, "max": 2000000, "stepsize": 100000, "label": "Gravity"},
+        "distance":            {"min": 50, "max": 160, "stepsize": 1, "label": "Distance"},
         "hitpoints":           {"min": 0, "max": 50, "label": "Hitpoints"},
       }
     }
-  }
+  }*/
 
-  CircleCollider {
+  BoxCollider {
     id: collider
-    radius: sprite.width * 0.45
+    width: sprite.width
+    height: sprite.height
     anchors.centerIn: parent
     bodyType: Body.Kinematic
     groupIndex: settingsManager.neutralGroup
@@ -59,7 +50,7 @@ GravityEntity {
       var collidedEntityType = collidedEntity.entityType;
       if(collidedEntityType === "rocket") {
         if(--parent.hitpoints === 0) {
-          destroyObstacle()
+          destroySatellite()
         }
       }
     }
@@ -86,29 +77,29 @@ GravityEntity {
     }
   }
 
-  function destroyObstacle() {
+  function destroySatellite() {
     collider.active = false
     sprite.visible = false
     flyer.start()
   }
 
   function rmvEntity() {
-    scene.removeEntityFromLogic(obstacle)
-    obstacle.removeEntity()
+    scene.removeEntityFromLogic(satellite)
+    satellite.removeEntity()
   }
 
   SingleSpriteFromFile {
     id: sprite
     filename: "../img/images-sd.json"
     source: variationType+".png"
-   // translateToCenterAnchor: false
+    translateToCenterAnchor: false
   }
 
   DebugVisual {
-    x: collider.x - collider.radius
-    y: collider.y - collider.radius
-    width: collider.radius * 2
-    height: collider.radius * 2
+    x: collider.x
+    y: collider.y
+    width: collider.width
+    height: collider.height
   }
 
   Timer {
@@ -116,9 +107,16 @@ GravityEntity {
     running: true
     repeat: true
     onTriggered: {
-      obstacle.angle += obstacle.speed
-      obstacle.x = obstacle.origin.x + Math.cos(obstacle.angle) * obstacle.distance
-      obstacle.y = obstacle.origin.y + Math.sin(obstacle.angle) * obstacle.distance
+      var distance = parent.distance;
+      var currentDistance = parent.currentDistance;
+      if(currentDistance < parent.distance) {
+        currentDistance = parent.currentDistance = Math.min(currentDistance + ~~((distance - currentDistance) / 50) + 1, distance)
+        parent.scale = currentDistance / distance
+      }
+
+      parent.angle += parent.speed
+      parent.x = parent.origin.x + Math.cos(parent.angle) * currentDistance
+      parent.y = parent.origin.y + Math.sin(parent.angle) * currentDistance
     }
   }
 }

@@ -14,6 +14,7 @@ Item {
   }
 
   property int borderOffset: 140
+  property int satelliteCount : 0
 
   BorderElement {
     x: scene.gameWindowAnchorItem.x-borderOffset
@@ -69,6 +70,7 @@ Item {
     settingsManager.balance2 = 0
 
     moon.origin = Qt.point(centerX, centerY)
+    moon.angle = Math.random() < 0.5 ? -90: 90;
   }
 
   function getTarget() {
@@ -123,12 +125,7 @@ Item {
     id: earth
   }
 
-  Obstacle {
+  Moon {
     id: moon
-    obstacleType: 2
-    distance: 150
-    speed: 0.005
-    hitpoints: 0
-    gravityForce: 1000000
   }
 }

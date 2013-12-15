@@ -8,6 +8,7 @@ SceneBase {
 
   controllerOfScene: level.getPlayerControllers()
   property alias itemEditor: itemEditor
+  signal spawnSatellite
   // debug scale to see whole scene and colliders
   //scale: 0.5
 
@@ -73,7 +74,7 @@ SceneBase {
   property bool gameIsRunning: false
 
   function initScene() {
-    LevelLogic.init()
+    LevelLogic.init(settingsManager.satelliteOrbits)
   }
 
   onOpacityChanged: {
@@ -106,7 +107,6 @@ SceneBase {
     gameTime.start()
     LevelLogic.setGravityWells(level.getGravityWells())
     LevelLogic.setPlayers(level.getPlayer1(), level.getPlayer2())
-   // LevelLogic.spawnSatellite();
   }
 
   function stopGame() {
@@ -123,7 +123,12 @@ SceneBase {
   }
 
   function removeEntityFromLogic(entity) {
-    LevelLogic.removeObject(entity.id)
+    if(entity.variationType === "satellite") {
+      level.satelliteCount--;
+      LevelLogic.removeSatellite(entity.index);
+    } else {
+      LevelLogic.removeObject(entity.id)
+    }
   }
 
   Timer {
@@ -138,7 +143,25 @@ SceneBase {
         debugTextForRockets.text = LevelLogic.objectsCount
       }
 
+      if(level.satelliteCount < settingsManager.satelliteCount && !satelliteSpawnTime.running) {
+        satelliteSpawnTime.start();
+      }
     }
 
+  }
+
+  Timer {
+    id: satelliteSpawnTime
+    interval: 3000
+    repeat: false
+    running: false
+    onTriggered: {
+      scene.spawnSatellite();
+    }
+  }
+
+  onSpawnSatellite: {
+    LevelLogic.spawnSatellite();
+    level.satelliteCount++;
   }
 }

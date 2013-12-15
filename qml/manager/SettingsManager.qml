@@ -25,6 +25,9 @@ Storage {
   property int player1Group: -1
   property int player2Group: -2
 
+  property int satelliteCount: 4
+  property variant satelliteOrbits: [45, 90, 135, 60, 105, 75]
+
   onSoundChanged: {
     storage.setValue("sound", sound)
   }

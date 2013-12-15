@@ -1,11 +1,14 @@
 var NUM_ROCKETS = 5;
 var rocketUrl = Qt.resolvedUrl("../entities/Rocket.qml");
-var obstacleUrl = Qt.resolvedUrl("../entities/Obstacle.qml");
+var satelliteUrl = Qt.resolvedUrl("../entities/Satellite.qml");
 var objects = {};
 var objectsCount = 0;
 var players = {};
 var gravityWells = {};
+var earthId = "";
 var direction = Qt.point(0,0);
+var satelliteOrbits = [];
+var satelliteAlive = {};
 var objectSettings = {
   "x": 0,
   "y": 0,
@@ -13,13 +16,21 @@ var objectSettings = {
   "target": null,
   "collisionGroup": 0
 }
-var obstacleSettings =  {
-  "distance": 40,
-  "speed": 0.005,
-  "origin" : Qt.point(0, 0)
+var satelliteSettings =  {
+  "origin" : Qt.point(0, 0),
+  "x": 0,
+  "y": 0,
+  "angle": 0,
+  "distance": 0,
+  "speed": 0,
+  "index": 0
 }
 
-function init() {
+function init(orbits) {
+  for(var i = 0; i < orbits.length; ++i) {
+    satelliteAlive[i] = false;
+  }
+  satelliteOrbits = orbits;
 }
 
 function setPlayers(player1, player2) {
@@ -28,10 +39,32 @@ function setPlayers(player1, player2) {
 }
 
 function spawnSatellite() {
-  objectSettings.distance = Math.random() * 120 + 40;
-  objectSettings.speed = Math.random() * 0.095 + 0.005;
-  objectSettings.origin = gravityWells[0].getPosition();
-  var entityId = entityManager.createEntityFromUrlWithProperties(obstacleUrl, obstacleSettings);
+  var distance = 0;
+  var index = 0;
+  for(var i = 0; i < satelliteOrbits.length; ++i) {
+    if(!satelliteAlive[i]) {
+      distance = satelliteOrbits[i];
+      index = i;
+      satelliteAlive[i] = true;
+      break;
+    }
+  }
+
+  var well = entityManager.getEntityById(earthId);
+  if(well) {
+    satelliteSettings.origin = well.getPosition();
+    satelliteSettings.x = satelliteSettings.origin.x;
+    satelliteSettings.y = satelliteSettings.origin.y;
+    satelliteSettings.index = index;
+    satelliteSettings.angle = Math.random() * Math.PI * 2
+    satelliteSettings.distance = distance;
+    satelliteSettings.speed = Math.random() * 0.02 + 0.01;
+    if(Math.random() < 0.5) {
+      satelliteSettings.speed *= -1;
+    }
+
+    entityManager.createEntityFromUrlWithProperties(satelliteUrl, satelliteSettings);
+  }
 }
 
 function spawnRocket(playerId) {
@@ -60,6 +93,9 @@ function createRockets(target) {
 function setGravityWells(wells) {
   for(var i = 0; i < wells.length; ++i) {
     var well = wells[i];
+    if(i === 0) {
+      earthId = well.entityId;
+    }
     gravityWells[well.entityId] = true;
   }
 }
@@ -73,9 +109,15 @@ function addObject(entityId) {
   objectsCount++;
 }
 
+function removeSatellite(index) {
+  satelliteAlive[index] = false;
+}
+
 function removeObject(entityId) {
+  if(objects[entityId]){
+    objectsCount--;
+  }
   delete objects[entityId];
-  objectsCount--
 }
 
 function applyGravity() {

@@ -25,6 +25,8 @@ EntityBase {
 
   property real frameRate: 7
 
+  property int hitpoint: 1
+
   property alias inputActionsToKeyCode: twoAxisController.inputActionsToKeyCode
 
   property alias collisionGroup: collider.groupIndex
@@ -129,7 +131,44 @@ EntityBase {
       var collidedEntityType = collidedEntity.entityType;
 
       //apply player damage here
+      if(--parent.hitpoint === 0) {
+        killPlayer();
+      }
     }
+  }
+
+  Particle {
+    id: flyer
+
+    //x: sprite.x+sprite.width/2
+    //y: sprite.y+sprite.height/2
+
+    // particle file
+    fileName: "../particles/BoingStar.json"
+
+    // start when finished loading
+    autoStart: false
+    //scale: 0.2
+    duration: 0.3
+
+    onRunningChanged: {
+      if(!running) {
+        rmvEntity()
+      }
+    }
+  }
+
+  function killPlayer() {
+    collider.active = false
+    sprite.visible = false
+    tower.visible = false
+    flyer.start()
+  }
+
+  function rmvEntity() {
+    followerEntity.removeEntity()
+    tower.removeEntiry()
+    // end game here
   }
 
   SingleSpriteFromFile {

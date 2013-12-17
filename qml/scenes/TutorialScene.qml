@@ -15,7 +15,7 @@ SceneBase {
     source: system.desktopPlatform  ? "../img/tutorial_desktop-sd.png" : "../img/tutorial_mobile-sd.png"
   }
 
-  function backPressed() {
+  onBackPressed: {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateMainMenuScene()
@@ -37,8 +37,7 @@ SceneBase {
     }
   }
 
-  // this allows navigation through key presses
-  Keys.onReturnPressed: {
+  onEnterPressed: {
     audioManager.play(audioManager.idBUTTON)
     changeToNextScene()
   }

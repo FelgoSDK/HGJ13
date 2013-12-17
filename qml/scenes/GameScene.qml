@@ -92,7 +92,7 @@ SceneBase {
     entityManager.removeAllEntities()
   }
 
-  function backPressed() {
+  onBackPressed: {
     if(developerBuild)
       stopGame()
   }

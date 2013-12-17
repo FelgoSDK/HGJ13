@@ -11,7 +11,7 @@ SceneBase {
     anchors.topMargin: 20
     anchors.horizontalCenter: scene.gameWindowAnchorItem.horizontalCenter
     font: fontHUD
-    text: qsTr("Epilepsie Warnung")+translation.language
+    text: qsTr("EPILEPSY WARNING")+translation.language
     blinkIntervall: 100
   }
 
@@ -20,7 +20,7 @@ SceneBase {
     anchors.top: warnung.bottom
     anchors.left: scene.gameWindowAnchorItem.left
     anchors.leftMargin: 20
-    text: qsTr("WARNUNG: VOR DEM SPIELEN LESEN!\nBei manchen Personen kann es in besonderen Fällen zu epileptischen Anfällen oder Bewusstseinsstörungen kommen, wenn sie bestimmten Blitzlichtern oder Lichteffekten ausgesetzt sind.Diese Personen können möglicherweise bei der Benutzung von Computer- und Videospielen einen Anfall erleiden. Hiervon können auch Personen betroffen sein, deren Krankheitsgeschichte bislang keine Epilepsie aufweist und die nie zuvor epileptische Anfälle gehabt haben [...]")+translation.language
+    text: qsTr("READ THIS NOTICE BEFORE YOU OR YOUR CHILD USE ANY VIDEO GAME\nA very small portion of the population have a condition which may cause them to experience epileptic seizures or have momentary loss of consciousness when viewing certain kinds of flashing lights or patterns that are commonly present in our daily environment. These persons may experience seizures while watching some kinds of television pictures or playing certain video games. Players who have not had any previous seizures may nonetheless have an undetected epileptic condition.")+translation.language
     color: "White"
     width: scene.width-40
     height: 250
@@ -28,7 +28,7 @@ SceneBase {
 
   Timer {
     id: changeToNextSceneTimer
-    interval: 20000
+    interval: 10000
     onTriggered: {
       sceneLoader.activateIntroScene()
     }
@@ -36,6 +36,11 @@ SceneBase {
 
   Component.onCompleted: {
     changeToNextSceneTimer.start()
+  }
+
+  onEnterPressed: {
+    changeToNextSceneTimer.stop()
+    sceneLoader.activateIntroScene()
   }
 
   MouseArea {

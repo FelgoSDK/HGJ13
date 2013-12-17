@@ -23,6 +23,11 @@ SceneBase {
     changeToNextSceneTimer.start()
   }
 
+  onEnterPressed: {
+    changeToNextSceneTimer.stop()
+    sceneLoader.activateWarningScene()
+  }
+
   MouseArea {
     anchors.fill: parent
     onClicked: {

@@ -73,8 +73,7 @@ SceneBase {
     nativeUtils.displayMessageBox(qsTr("Really quit the game?")+translation.language, "", 2);
   }
 
-  // this allows navigation through key presses
-  Keys.onReturnPressed: {
+  onEnterPressed: {
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateGameScene()
   }

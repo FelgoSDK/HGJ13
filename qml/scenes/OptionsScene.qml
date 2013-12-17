@@ -11,7 +11,13 @@ SceneBase {
     source: "../img/options_screen-sd.png"
   }
 
-  function backPressed() {
+  onEnterPressed: {
+    audioManager.play(audioManager.idBUTTON)
+    sceneLoader.activateMainMenuScene()
+  }
+
+  onBackPressed: {
+    audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateMainMenuScene()
   }
 

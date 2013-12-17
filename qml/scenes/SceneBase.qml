@@ -33,6 +33,7 @@ Scene {
 
   // handle this signal in each Scene
   signal backPressed
+  signal enterPressed
 
   function open() {
     opacity = 1;
@@ -55,10 +56,16 @@ Scene {
   Keys.onPressed: {
     if(event.key === Qt.Key_Backspace && system.desktopPlatform) {
       backPressed()
+    } else if(event.key === Qt.Key_Return) {
+      enterPressed()
     }
   }
 
   Keys.onBackPressed: {
     backPressed()
+  }
+
+  Keys.onReturnPressed: {
+    enterPressed()
   }
 }

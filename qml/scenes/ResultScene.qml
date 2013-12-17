@@ -10,14 +10,13 @@ SceneBase {
     source: "../img/scores-sd.png"
   }
 
-  function backPressed() {
+  onBackPressed: {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateMainMenuScene()
   }
 
-  // this allows navigation through key presses
-  Keys.onReturnPressed: {
+  onEnterPressed: {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateMainMenuScene()
@@ -294,28 +293,9 @@ SceneBase {
   MouseArea {
     anchors.fill: parent
     onClicked: {
+      audioManager.playMusic(audioManager.idMusicBG)
+      audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateMainMenuScene()
     }
-  }
-
-  function open() {
-    opacity = 1
-    console.debug(settingsManager.balance1, settingsManager.balance2)
-
-    console.debug("moon1", settingsManager.moon1)
-    console.debug("moondestroy1", settingsManager.moondestroy1)
-    console.debug("satellite1", settingsManager.satellite1)
-    console.debug("city1", settingsManager.city1)
-    console.debug("rocket1", settingsManager.rocket1)
-    console.debug("comet1", settingsManager.comet1)
-    console.debug("shield1", settingsManager.shield1)
-
-    console.debug("moon2", settingsManager.moon2)
-    console.debug("moondestroy2", settingsManager.moondestroy2)
-    console.debug("satellite2", settingsManager.satellite2)
-    console.debug("city2", settingsManager.city2)
-    console.debug("rocket2", settingsManager.rocket2)
-    console.debug("comet2", settingsManager.comet2)
-    console.debug("shield2", settingsManager.shield2)
   }
 }

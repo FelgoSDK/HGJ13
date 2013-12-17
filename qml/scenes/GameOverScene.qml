@@ -10,13 +10,13 @@ SceneBase {
     source: "../img/bg_ingame-sd.png"
   }
 
-  function backPressed() {
+  onBackPressed:  {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateResultScene()
   }
-  // this allows navigation through key presses
-  Keys.onReturnPressed: {
+
+  onEnterPressed: {
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateResultScene()

@@ -22,6 +22,11 @@ SceneBase {
     changeToNextSceneTimer.start()
   }
 
+  onEnterPressed: {
+    changeToNextSceneTimer.stop()
+    sceneLoader.activateMainMenuScene()
+  }
+
   MouseArea {
     anchors.fill: parent
     onClicked: {

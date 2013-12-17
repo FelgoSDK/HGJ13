@@ -11,12 +11,14 @@ SceneBase {
   }
 
   onBackPressed:  {
+    audioManager.stopMusic()
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateResultScene()
   }
 
   onEnterPressed: {
+    audioManager.stopMusic()
     audioManager.playMusic(audioManager.idMusicBG)
     audioManager.play(audioManager.idBUTTON)
     sceneLoader.activateResultScene()
@@ -35,6 +37,7 @@ SceneBase {
     anchors.bottom: parent.bottom
     anchors.bottomMargin: 10
     onClicked: {
+      audioManager.stopMusic()
       audioManager.playMusic(audioManager.idMusicBG)
       audioManager.play(audioManager.idBUTTON)
       sceneLoader.activateResultScene()

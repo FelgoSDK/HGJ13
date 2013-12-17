@@ -63,7 +63,6 @@ Item {
 
   BackgroundMusic {
     id: music
-    autoPlay: false
   }
 
   Sound {

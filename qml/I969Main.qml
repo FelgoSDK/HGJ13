@@ -40,11 +40,6 @@ GameWindow {
     source: "fonts/propaganda.ttf"
   }
 
-  // all content is loaded dynamically by the sceneLoader element.
-  SceneLoader {
-    id: sceneLoader
-  }
-
   // global music and sound management
   AudioManager {
     id: audioManager
@@ -53,5 +48,10 @@ GameWindow {
   // settings can be stored directly by the settings manager
   SettingsManager {
     id: settingsManager
+  }
+
+  // all content is loaded dynamically by the sceneLoader element.
+  SceneLoader {
+    id: sceneLoader
   }
 }

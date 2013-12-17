@@ -12,7 +12,7 @@ EntityBase {
 
   entityType: "player"
   entityId: "1"
-  property variant weaponPosition: Qt.point(0,0)//-tower.width/2, -tower.height/2)
+  property variant weaponPosition: Qt.point(0,0)
   property real weaponAngle: 0
   property real minAngle: 0
   property real maxAngle: 0
@@ -168,16 +168,11 @@ EntityBase {
   Particle {
     id: killParticleEffect
 
-    //x: sprite.x+sprite.width/2
-    //y: sprite.y+sprite.height/2
-
     // particle file
     fileName: "../particles/player_explosion.json"
 
     // start when finished loading
     autoStart: false
-    //scale: 0.2
-    //duration: 0.3
 
     onRunningChanged: {
       if(!running) {
@@ -190,6 +185,7 @@ EntityBase {
     collider.active = false
     sprite.visible = false
     tower.visible = false
+    laserEffect.visible = false
     killParticleEffect.start()
   }
 
@@ -233,7 +229,7 @@ EntityBase {
 
   MultiTouchArea {
     y: scene.gameWindowAnchorItem.y-scene.gameWindowAnchorItem.height/2+parent.height/2
-    width: scene.gameWindowAnchorItem.width/2
+    width: scene.gameWindowAnchorItem.width/5*2
     height: scene.gameWindowAnchorItem.height
 
     DebugVisual {

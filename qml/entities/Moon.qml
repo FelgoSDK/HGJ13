@@ -83,7 +83,7 @@ GravityEntity {
   }
 
   function rmvEntity() {
-    scene.removeEntityFromLogic(moon)
+    activeScene.removeEntityFromLogic(moon)
     moon.removeEntity()
   }
 

@@ -190,7 +190,7 @@ EntityBase {
   }
 
   function rmvEntity() {
-    scene.startGameEndPhase(entityId);
+    activeScene.startGameEndPhase(entityId);
     followerEntity.removeEntity()
   }
 

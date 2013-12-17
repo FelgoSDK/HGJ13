@@ -29,8 +29,10 @@ GravityEntity {
 
   BoxCollider {
     id: collider
-    width: 3 * sprite.width / 4
-    height: sprite.height / 3
+    x: -sprite.width/2+sprite.width/4
+    y: -sprite.height/2+sprite.height/4+sprite.height/4/2
+    width: sprite.width / 4 * 2
+    height: sprite.height / 4 * 1
     bullet: true
     fixedRotation: true
     groupIndex: settingsManager.neutralGroup
@@ -121,20 +123,4 @@ GravityEntity {
       oldY = position.y;*/
     }
   }
-
-  /*  Rectangle {
-    anchors.centerIn: collider
-    width: 1
-    height: 1
-    property int vertexZ:10
-    color: "blue"
-  }
-
-  Rectangle {
-    anchors.centerIn: collider
-    width: 5
-    height: 5
-    property int vertexZ:10
-    color: "yellow"
-  }*/
 }

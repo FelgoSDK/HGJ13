@@ -32,14 +32,6 @@ SceneBase {
     debugDrawVisible: true
   }
 
-  EntityManager {
-    id: entityManager
-    // forward container allways to container of scene
-    entityContainer: entityContainerOfScene
-    // forward dynamic entity list e.g. used for level editor
-    //dynamicCreationEntityList: activeScene.dynamicCreationEntityList
-  }
-
   entityContainerOfScene: level
 
   Level {
@@ -93,7 +85,7 @@ SceneBase {
   }
 
   onBackPressed: {
-    if(developerBuild)
+    //if(developerBuild)
       stopGame()
   }
 
@@ -108,6 +100,8 @@ SceneBase {
 
     gameIsRunning = false
     gameTime.stop()
+    satelliteSpawnTime.stop()
+    cometSpawnTime.stop()
     sceneLoader.activateGameOverScene()
   }
 
